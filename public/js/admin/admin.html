@@ -1,0 +1,48 @@
+    <header-dir></header-dir>
+    <h2>Admin Page</h2>
+
+    <div ng-hide="adminLogin">
+
+    </div>
+    <input ng-model="credentials.username" placeholder="admin username">
+    <input type="password" ng-model="credentials.password" placeholder="admin username">
+    <button type="button" ng-click='adminLogin()'>Login</button>
+
+<div class="adminContainer" ng-hide="adminUser">
+    <div>
+        <h4>Add new Product</h4>
+        <input  placeholder="make" ng-model="productMake">
+        <input  placeholder="price of new Product" ng-model="productPrice">
+        <input  placeholder="url img of new Product" ng-model="productImg">
+        <input  placeholder="model" ng-model="productModel">
+        <textarea  placeholder="long description of Product" ng-model="productDescriptionLong"></textarea>
+        <input  placeholder="condition of Product" ng-model="productCondition">
+        <button ng-click="addProduct(productMake, productPrice, productImg, productModel, productDescriptionLong, productCondition)">Add New</button>
+        <br>
+        <h4>Update Product</h4>
+        <input  placeholder="id of Product" ng-model="productUpdateId">
+        <button ng-click="updateProduct(productUpdateId, productMake, productPrice, productImg, productModel)">Update</button>
+    </div>
+
+    <div>
+        <h4>Delete Product</h4>
+        <input  placeholder="id of Product" ng-model="productId">
+        <button ng-click="deleteProduct(productId)">Delete</button>
+    </div>
+
+
+    <div>
+        <h4>products</h4>
+        <ul class="products" ng-repeat="product in products">
+            <li>{{product.make}}</li>
+            <li>${{product.price}}</li>
+            <li>{{product.model}}</li>
+            <li>{{product.image}}</li>
+            <li>{{product.summary}}</li>
+            <li>{{product.condition}}</li>
+            <li>{{product.buyInDate}}</li>
+            <li>{{product._id}}</li>
+            <!-- <button ng-click="deleteProduct(productId)">Submit</button> -->
+        </ul>
+    </div>
+</div>
