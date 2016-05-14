@@ -40,14 +40,11 @@ passport.use(new LocalStrategy({
     usernameField: 'username',
     passwordField: 'password'
 }, function(username, password, done) {
-    console.log("passport spot");
     Admins.findOne({username: username})
         .exec(function(err, user) {
-            console.log("------",user, err);
             if (err) done(err);
             if (!user) return done(null, false);
             if(user.verifyPassword(password)) {
-                console.log("Verified Password", user);
                 return done(null, user);}
 
             return done(null, false); //if none of the if statements were triggered then it will just return done
@@ -55,14 +52,11 @@ passport.use(new LocalStrategy({
 }));
 
 passport.serializeUser(function(user, done) { //this puts the user on req.user
-    console.log("hitting serializeUser", user);
     done(null, user._id);
 });
 
 passport.deserializeUser(function(_id, done) {
-    console.log(_id);
     Admins.findById(_id, function(err, user) {
-        console.log(err, user);
         done(err, user);
     });
 });
@@ -85,7 +79,10 @@ app.post('/api/adminLogin', passport.authenticate('local', {
     successRedirect: '/me'
 }));
 
-app.post('/api/register', adminCtrl.create);
+app.post('/api/admin', adminCtrl.create);
+app.put('/api/admin/:id', adminCtrl.update);
+app.get('/api/admin', adminCtrl.read);
+app.delete('/api/admin/:id', adminCtrl.delete);
 
 app.get('/me', adminCtrl.me);
 

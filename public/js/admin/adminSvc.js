@@ -11,17 +11,18 @@ angular.module("app")
             });
         };
 
-        this.addNewProduct = function(make, price, img, model, summary, condition) {
+        this.addNewProduct = function(newProduct) {
             return $http({
                 method: "POST",
                 url: '/api/products',
                 data: {
-                    make: make,
-                    price: price,
-                    image: img,
-                    model: model,
-                    summary: summary,
-                    condition: condition
+                    make: newProduct.make,
+                    price: newProduct.price,
+                    image: newProduct.image,
+                    model: newProduct.model,
+                    summary: newProduct.summary,
+                    condition: newProduct.condition,
+                    category: newProduct.category
                 }
             })
             .then(function(response) {
@@ -40,15 +41,18 @@ angular.module("app")
             });
         };
 
-        this.updateProduct = function(id, name, price, img) {
+        this.updateProduct = function(id, newProduct) {
             return $http({
                 method: "PUT",
                 url: "/api/products/" + id,
                 data: {
-                    name: name,
-                    price: price,
-                    img: img,
-                    description: prodDetails
+                    make: newProduct.make,
+                    price: newProduct.price,
+                    image: newProduct.image,
+                    model: newProduct.model,
+                    summary: newProduct.summary,
+                    condition: newProduct.condition,
+                    category: newProduct.category
                 }
             })
             .then(function(response) {
@@ -87,6 +91,50 @@ angular.module("app")
             .then(function(response) {
                 console.log(response);
                 return response;
+            });
+        };
+
+        this.getAdmins = function() {
+            return $http({
+                method: "GET",
+                url: "/api/admin"
+            })
+            .then(function(response) {
+                return response.data;
+            });
+        };
+
+        this.addAdmin = function(newAdmin) {
+            console.log(data);
+            return $http({
+                method: 'POST',
+                url: '/api/admin',
+                data: newAdmin
+            })
+            .then(function(response) {
+                console.log("admin creating success", response);
+                return response;
+            });
+        };
+
+        this.updateAdmin = function(id, admin) {
+            return $http({
+                method: "PUT",
+                url: "/api/admin/" + id,
+                data: admin
+            })
+            .then(function(response) {
+                console.log(response);
+            });
+        };
+
+        this.deleteAdmin = function(id) {
+            return $http({
+                method: "DELETE",
+                url: "/api/admin/" + id
+            })
+            .then(function(response) {
+                console.log(response);
             });
         };
 

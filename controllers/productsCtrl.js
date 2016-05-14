@@ -8,6 +8,7 @@ module.exports = {
             return res.status(400).send('id query needed');
         }
         Product.findOneAndUpdate({_id: req.params.id}, req.body, function(err, productItem) {
+            console.log(productItem);
             if (err) {
                 res.status(500).send(err);
             } else {

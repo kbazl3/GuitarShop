@@ -27,6 +27,9 @@ var productSchema = new Schema({
     condition: {
         type: String
     },
+    category: {
+        type: String
+    },
     buyInDate: { type: Date, default: new Date()}
 });
 
