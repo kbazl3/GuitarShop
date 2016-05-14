@@ -40,7 +40,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+            </div>
+        </div>
+                <!-- <div class="row">
                     <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="product in products">
                         <div class="thumbnail">
                             <img ng-src={{product.image}} alt="">
@@ -51,13 +53,40 @@
                                 <p>{{product.model}}</p>
                             <div class="ratings">
                                 <p class="pull-right">Condition: {{product.condition}}t</p>
-                                <span class="glyphicon social-facebook"></span>
                             </div>
                             </div>
                         </div>
                     </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="product in products">
+                        <div class="thumbnail">
+                            <div data-toggle="modal" data-target="#{{product._id}}">
+                                <a href=""><img ng-src={{product.image}} alt=""></a>
+                            </div>
+                            <div class="caption">
+                                <h4 class="pull-right">${{product.price}}</h4>
+                                <h4>{{product.make}}</h4>
+                                <p>{{product.model}}</p>
+                                <div class="ratings">
+                                    <p class="pull-right">Condition: {{product.condition}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- MODAL -->
+                        <div class="modal fade" id={{product._id}}>
+                            <div class="modal-body">
+                                <img src={{product.image}} alt="" />
+                                <p>
+                                    {{product.summary}}
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
     </div>
+
     <footer-dir></footer-dir>

@@ -6,5 +6,9 @@ angular.module("app")
                 $scope.products = products;
             });
 
+        $scope.alertz = function() {
+            alert('d')
+        }
+
 
 });
