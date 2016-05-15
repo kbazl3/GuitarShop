@@ -11,7 +11,6 @@ module.exports = {
     },
 
     create: function(req, res) {
-        console.log(req.body);
         Admins.create(req.body, function(err, newUser) {
           if (err) {
             res.status(500).send(err);
@@ -42,8 +41,7 @@ module.exports = {
 
     me: function(req, res, next) {
         // if (!req.user) return res.status(401).send('current user not defined');
-        console.log(req.user);
-        //req.user.password = null; //when returning a user object, set the password to null
+        req.user.password = null; //when returning a user object, set the password to null
         return res.status(200).json(req.user);
     }
 

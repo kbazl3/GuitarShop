@@ -29,7 +29,6 @@ module.exports = {
     },
 
     destroyProduct: function(req, res) {
-        console.log("hitting delete", req.params.id);
        if (!req.params.id) {
            return res.status(400).send('id query needed');
        }
@@ -43,7 +42,6 @@ module.exports = {
    },
 
    getOneProduct : function(req, res) {
-       console.log("hitting get one", req.params.id);
        Product.findOne({_id: req.params.id}, function(err, productItem) {
            if (err) {
                res.status(500).json(err);

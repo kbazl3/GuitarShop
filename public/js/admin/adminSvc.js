@@ -138,4 +138,101 @@ angular.module("app")
             });
         };
 
+        this.getLessons = function() {
+            return $http({
+              method: 'GET',
+              url: '/api/lessons'
+            }).then(function(response) {
+                return response.data;
+            });
+        };
+
+        this.addLesson = function(lesson) {
+          return $http({
+              method: 'POST',
+              url: '/api/lessons',
+              data: {
+                  firstName: lesson.firstName,
+                  lastName: lesson.lastName,
+                  phone: lesson.phone,
+                  email: lesson.email,
+                  Instructor: lesson.instructor,
+                  date: lesson.date,
+                  detail: lesson.details
+              }
+          })
+          .then(function(response) {
+              return response;
+          });
+        };
+
+        this.deleteLesson = function(id) {
+            return $http({
+                method: "DELETE",
+                url: "/api/lessons/" + id
+            })
+            .then(function(response) {
+                console.log(response);
+            });
+        };
+
+        this.updateLesson = function(id, lesson) {
+            return $http({
+                method: "PUT",
+                url: "/api/lessons/" + id,
+                data: lesson
+            })
+            .then(function(response) {
+            });
+        };
+
+        this.getStudioSessions = function() {
+            return $http({
+              method: 'GET',
+              url: '/api/studioSessions'
+            }).then(function(response) {
+                console.log(response);
+                return response.data;
+            });
+        };
+
+        this.addStudioSession = function(session) {
+            return $http({
+                method: "POST",
+                url: '/api/studioSessions',
+                data: {
+                    firstName: session.firstName,
+                    lastName: session.lastName,
+                    phone: session.phone,
+                    email: session.email,
+                    Instructor: session.instructor,
+                    date: session.date,
+                    detail: session.details
+                }
+            })
+            .then(function(response) {
+                return response;
+            });
+        };
+
+        this.deleteStudioSession = function(id) {
+            return $http({
+                method: "DELETE",
+                url: "/api/studioSessions/" + id
+            })
+            .then(function(response) {
+                console.log(response);
+            });
+        };
+
+        this.updateStudioSession = function(id, session) {
+            return $http({
+                method: "PUT",
+                url: "/api/studioSessions/" + id,
+                data: session
+            })
+            .then(function(response) {
+            });
+        };
+
 });
