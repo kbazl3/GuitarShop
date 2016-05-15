@@ -11,6 +11,7 @@ module.exports = {
     },
 
     create: function(req, res) {
+        console.log(req.body);
         Admins.create(req.body, function(err, newUser) {
           if (err) {
             res.status(500).send(err);

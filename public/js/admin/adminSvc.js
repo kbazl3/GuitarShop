@@ -62,12 +62,14 @@ angular.module("app")
 
         // ***ADMIN LOGINS***
         this.adminLogin = function(user) {
+            console.log(user);
             return $http({
                 method: "POST",
                 url: '/api/adminLogin',
                 data: user
             })
             .then(function(response) {
+                console.log(response);
                 return response;
             });
         };
@@ -105,14 +107,12 @@ angular.module("app")
         };
 
         this.addAdmin = function(newAdmin) {
-            console.log(data);
             return $http({
                 method: 'POST',
                 url: '/api/admin',
                 data: newAdmin
             })
             .then(function(response) {
-                console.log("admin creating success", response);
                 return response;
             });
         };
@@ -191,7 +191,6 @@ angular.module("app")
               method: 'GET',
               url: '/api/studioSessions'
             }).then(function(response) {
-                console.log(response);
                 return response.data;
             });
         };
