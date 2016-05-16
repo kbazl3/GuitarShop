@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <p class="lead">Kyle's Guitar Store</p>
+            <p class="lead">Guitar Bazaar</p>
             <div class="list-group">
                 <a href="#" class="list-group-item">Guitars</a>
                 <a href="#" class="list-group-item">Electric Basses</a>
@@ -42,27 +42,11 @@
             </div>
         </div>
     </div>
-    <!-- <div class="row">
-                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="product in products">
-                        <div class="thumbnail">
-                            <img ng-src={{product.image}} alt="">
-                            <div class="caption">
-                                <h4 class="pull-right">${{product.price}}</h4>
-                                <h4><a href="#">{{product.make}}</a>
-                                </h4>
-                                <p>{{product.model}}</p>
-                            <div class="ratings">
-                                <p class="pull-right">Condition: {{product.condition}}t</p>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
     <div class="row">
-        <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="product in products">
+        <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="product in products | orderBy:'price':false">
             <div class="thumbnail">
                 <div data-toggle="modal" data-target="#{{product._id}}">
-                    <a href=""><img ng-src={{product.image}} alt=""></a>
+                    <a href="" class="prodImg"><img ng-src={{product.image}} alt=""></a>
                 </div>
                 <div class="caption">
                     <h4 class="pull-right">${{product.price}}</h4>
@@ -75,18 +59,20 @@
             </div>
             <!-- MODAL -->
             <div class="modal fade" id={{product._id}}>
-                <div class="modal-body">
-                    <img src={{product.image}} alt="" />
-                    <p>
-                        {{product.summary}}
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">{{product.make}}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <img src={{product.image}} alt=""/>
+                            <p>{{product.summary}}<p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 <footer-dir></footer-dir>

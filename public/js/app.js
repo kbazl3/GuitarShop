@@ -16,6 +16,12 @@ angular.module("app", ['ui.router', 'ngMessages'])
             controller: "adminCtrl"
         })
 
+        .state("splash", {
+            url: '/splash',
+            templateUrl: "./js/home/home.html",
+            controller: "homeCtrl"
+        })
+
         .state("services", {
             url: '/services',
             templateUrl: "./js/services/services.html",
