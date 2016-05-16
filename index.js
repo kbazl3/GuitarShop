@@ -15,9 +15,6 @@ var express = require('express'),
     app = express();
     port = 4700;
 
-    // require('./services/routes') (app);
-    // require('./services/mongoose')();
-
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));

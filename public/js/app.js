@@ -18,7 +18,8 @@ angular.module("app", ['ui.router'])
 
             .state("services", {
                 url: '/services',
-                templateUrl: "./js/services/services.html"
+                templateUrl: "./js/services/services.html",
+                controller: "servicesCtrl"
             });
 
     });

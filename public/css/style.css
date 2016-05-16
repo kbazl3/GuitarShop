@@ -124,14 +124,14 @@ footer {
 
 .services-section {
     height: 100%;
-    padding-top: 150px;
+    padding-top: 20px;
     text-align: center;
     background-image: url();
 }
 
 .contact-section {
     height: 100%;
-    padding-top: 150px;
+    padding-top: 20px;
     text-align: center;
     background: #eee;
 }
