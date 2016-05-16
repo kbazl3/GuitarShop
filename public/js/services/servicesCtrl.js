@@ -1,4 +1,8 @@
 angular.module("app")
-    .controller("services", function($scope) {
+    .controller("servicesCtrl", function($scope, $anchorScroll) {
 
-});
+        $scope.scrollTo = function(id) {
+            $anchorScroll(id);
+        };
+
+    });

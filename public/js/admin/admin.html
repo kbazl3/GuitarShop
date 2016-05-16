@@ -1,11 +1,11 @@
-    <header-dir></header-dir>
-    <h2>Admin Page</h2>
+<header-dir></header-dir>
+<h2>Admin Page</h2>
 
-    <div ng-hide="adminLoginBoxes">
-        <input ng-model="credentials.username" placeholder="admin username">
-        <input type="password" ng-model="credentials.password" placeholder="admin username">
-        <button type="button" ng-click='adminLogin()'>Login</button>
-    </div>
+<div ng-hide="adminLoginBoxes">
+    <input ng-model="credentials.username" placeholder="admin username">
+    <input type="password" ng-model="credentials.password" placeholder="admin username">
+    <button type="button" ng-click='adminLogin()'>Login</button>
+</div>
 
 
 <div class="adminContainer" ng-hide="adminUser">
@@ -16,21 +16,21 @@
     <div ng-hide="manageProducts">
         <div>
             <p>Add new Product</p>
-            <input  placeholder="make" ng-model="product.make">
-            <input  placeholder="price of new Product" ng-model="product.price">
-            <input  placeholder="url img of new Product" ng-model="product.image">
-            <input  placeholder="model" ng-model="product.model">
-            <textarea  placeholder="long description of Product" ng-model="product.summary"></textarea>
-            <input  placeholder="condition of Product" ng-model="product.condition">
-            <input  placeholder="Category of Product" ng-model="product.category">
+            <input placeholder="make" ng-model="product.make">
+            <input placeholder="price of new Product" ng-model="product.price">
+            <input placeholder="url img of new Product" ng-model="product.image">
+            <input placeholder="model" ng-model="product.model">
+            <textarea placeholder="long description of Product" ng-model="product.summary"></textarea>
+            <input placeholder="condition of Product" ng-model="product.condition">
+            <input placeholder="Category of Product" ng-model="product.category">
             <button ng-click="addProduct(product)">Add New</button>
             <br>
             <p>Update Product</p>
-            <input  placeholder="id of Product" ng-model="prodId">
+            <input placeholder="id of Product" ng-model="prodId">
             <button ng-click="updateProduct(prodId, product)">Update</button>
         </div>
 
-            <button ng-click="deleteProduct(prodId)">Delete</button>
+        <button ng-click="deleteProduct(prodId)">Delete</button>
         <div>
             <h4>products</h4>
             <ul class="products" ng-repeat="product in products">
@@ -49,15 +49,20 @@
 
     <div class="container" ng-hide="manageAdmins">
         <form class="well span7">
-        <legend class="text-center"> Mangage Admin Users</legend>
-        <input  placeholder="Last Name" ng-model="admin.username">
-        <input  placeholder="Email" ng-model="admin.email">
-        <input  type="password" placeholder="Password" ng-model="admin.password"><br>
-        <input placeholder="Admin id" ng-model="adminID">
-        <button type="button" ng-click="addAdmin(admin)">Add Admin</button>
-        <button type="button" ng-click="updateAdmin(adminID, admin)">Update Admin</button>
-        <button type="button" ng-click="deleteAdmin(adminID)">Delete Admin</button>
-    </form>
+            <legend class="text-center"> Mangage Admin Users</legend>
+            <input placeholder="Last Name" ng-model="admin.username">
+            <input placeholder="Email" ng-model="admin.email">
+            <input type="password" placeholder="Password" ng-model="admin.password" required minlength="6">
+            <div ng-messages="myForm.myField.$error">
+                <div ng-message="required">You did not enter a field</div>
+                <div ng-message="minlength">The value entered is too short</div>
+            </div>
+            <br>
+            <input placeholder="Admin id" ng-model="adminID">
+            <button type="button" ng-click="addAdmin(admin)">Add Admin</button>
+            <button type="button" ng-click="updateAdmin(adminID, admin)">Update Admin</button>
+            <button type="button" ng-click="deleteAdmin(adminID)">Delete Admin</button>
+        </form>
 
         <h4>Admins</h4>
         <ul class="adminsList" ng-repeat="admin in admins">
@@ -70,240 +75,240 @@
 
 
 
-<div class="container" ng-hide="lessonsAppointment">
-    <form class="well span7">
-        <legend class="text-center"> Manage Guitar Lessons</legend>
-                    <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="newLesson(lesson)">Add New Lesson</button>
-        <div class="row">
-            <div class="span2">
-                <label>First Name</label>
-                <input type="text" class="span2" ng-model="lesson.firstName">
-                <label>Last Name</label>
-                <input type="text" class="span2" ng-model="lesson.lastName">
-                <label>Phone</label>
-                <input type="text" class="span2" ng-model="lesson.phone">
-                <label>Email</label>
-                <input type="text" class="span2" ng-model="lesson.email">
-                <label>Instructor</label>
-                <input type="text" class="span2" ng-model="lesson.instructor">
-            </div>
-            <div class="span5">
-                <label>Date and Time</label>
-                <div class="btn-toolbar" style="margin: 0;">
-                    <div class="btn-group">
-                        <select ng-model="lesson.date.month">
-                            <option value="Month">- Month -</option>
-                            <option value="January">January</option>
-                            <option value="February">February</option>
-                            <option value="March">March</option>
-                            <option value="April">April</option>
-                            <option value="May">May</option>
-                            <option value="June">June</option>
-                            <option value="July">July</option>
-                            <option value="August">August</option>
-                            <option value="September">September</option>
-                            <option value="October">October</option>
-                            <option value="November">November</option>
-                            <option value="December">December</option>
-                        </select>
-                        <select ng-model="lesson.date.day">
-                            <option value="Day">- Day -</option>
-                            <option value="01">1</option>
-                            <option value="02">2</option>
-                            <option value="03">3</option>
-                            <option value="03">4</option>
-                            <option value="03">5</option>
-                            <option value="03">6</option>
-                            <option value="03">7</option>
-                            <option value="03">8</option>
-                            <option value="03">9</option>
-                            <option value="03">10</option>
-                            <option value="03">11</option>
-                            <option value="03">12</option>
-                            <option value="03">13</option>
-                            <option value="03">14</option>
-                            <option value="03">15</option>
-                            <option value="03">16</option>
-                            <option value="03">17</option>
-                            <option value="03">18</option>
-                            <option value="03">19</option>
-                            <option value="03">20</option>
-                            <option value="03">21</option>
-                            <option value="03">22</option>
-                            <option value="03">23</option>
-                            <option value="03">24</option>
-                            <option value="03">25</option>
-                            <option value="03">26</option>
-                            <option value="03">27</option>
-                            <option value="03">28</option>
-                            <option value="03">29</option>
-                            <option value="03">30</option>
-                            <option value="03">31</option>
-                        </select>
-                        <select ng-model="lesson.date.time">
-                            <option value="Time">Time am/pm</option>
-                            <option value="10am">10:00am</option>
-                            <option value="1030am">10:30am</option>
-                            <option value="11am">11:00am</option>
-                            <option value="1130am">11:30am</option>
-                            <option value="12pm">12:00pm</option>
-                            <option value="1230pm">12:30pm</option>
-                            <option value="1pm">1:00pm</option>
-                            <option value="130pm">1:30pm</option>
-                            <option value="2pm">2:00pm</option>
-                            <option value="230pm">2:30pm</option>
-                            <option value="3pm">3:00pm</option>
-                            <option value="330pm">3:30pm</option>
-                            <option value="4pm">4:00pm</option>
-                            <option value="430pm">4:30pm</option>
-                        </select>
-                    </div>
+    <div class="container" ng-hide="lessonsAppointment">
+        <form class="well span7">
+            <legend class="text-center"> Manage Guitar Lessons</legend>
+            <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="newLesson(lesson)">Add New Lesson</button>
+            <div class="row">
+                <div class="span2">
+                    <label>First Name</label>
+                    <input type="text" class="span2" ng-model="lesson.firstName">
+                    <label>Last Name</label>
+                    <input type="text" class="span2" ng-model="lesson.lastName">
+                    <label>Phone</label>
+                    <input type="text" class="span2" ng-model="lesson.phone">
+                    <label>Email</label>
+                    <input type="text" class="span2" ng-model="lesson.email">
+                    <label>Instructor</label>
+                    <input type="text" class="span2" ng-model="lesson.instructor">
                 </div>
-                <label class="">Details</label>
-                <textarea id="message" class="span4" rows="10" style="width: 96%" ng-model="lesson.details"></textarea>
-            </div>
-            <label>Lesson ID</label>
-            <input type="text" class="span2" ng-model="lessonID">
-            <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="updateLesson(lessonID, lesson)">Update Lesson</button>
-            <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="deleteLesson(lessonID)">Delete Lesson</button>
-        </div>
-    </form>
-    <div>
-        <h4>Lessons</h4>
-        <ul ng-repeat="lesson in lessons">
-            <li>{{lesson.firstName}}</li>
-            <li>{{lesson.lastName}}</li>
-            <li>{{lesson.phone}}</li>
-            <li>{{lesson.email}}</li>
-            <li>{{lesson.instructor}}</li>
-            <li>{{lesson.date.month}}</li>
-            <li>{{lesson.detail}}</li>
-            <li>{{lesson.dateCreated}}</li>
-            <li>{{lesson._id}}</li>
-        </ul>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<div class="container" ng-hide="recordingSessionAppointment">
-    <form class="well span7">
-        <legend class="text-center">Manage Studio Sessions</legend>
-        <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="newStudioSession(studioSession)">Add New Studio Session</button>
-        <div class="row">
-            <div class="span2">
-                <label>First Name</label>
-                <input type="text" class="span2" ng-model="studioSession.firstName">
-                <label>Last Name</label>
-                <input type="text" class="span2" ng-model="studioSession.lastName">
-                <label>Phone</label>
-                <input type="text" class="span2" ng-model="studioSession.phone">
-                <label>Email</label>
-                <input type="text" class="span2" ng-model="studioSession.email">
-                <label>Sound Engineer</label>
-                <input type="text" class="span2" ng-model="studioSession.instructor">
-            </div>
-            <div class="span5">
-                <label>Date and Time</label>
-                <div class="btn-toolbar" style="margin: 0;">
-                    <div class="btn-group">
-                        <select ng-model="studioSession.date.month">
-                            <option value="Month">- Month -</option>
-                            <option value="January">January</option>
-                            <option value="February">February</option>
-                            <option value="March">March</option>
-                            <option value="April">April</option>
-                            <option value="May">May</option>
-                            <option value="June">June</option>
-                            <option value="July">July</option>
-                            <option value="August">August</option>
-                            <option value="September">September</option>
-                            <option value="October">October</option>
-                            <option value="November">November</option>
-                            <option value="December">December</option>
-                        </select>
-                        <select ng-model="studioSession.date.day">
-                            <option value="Day">- Day -</option>
-                            <option value="01">1</option>
-                            <option value="02">2</option>
-                            <option value="03">3</option>
-                            <option value="03">4</option>
-                            <option value="03">5</option>
-                            <option value="03">6</option>
-                            <option value="03">7</option>
-                            <option value="03">8</option>
-                            <option value="03">9</option>
-                            <option value="03">10</option>
-                            <option value="03">11</option>
-                            <option value="03">12</option>
-                            <option value="03">13</option>
-                            <option value="03">14</option>
-                            <option value="03">15</option>
-                            <option value="03">16</option>
-                            <option value="03">17</option>
-                            <option value="03">18</option>
-                            <option value="03">19</option>
-                            <option value="03">20</option>
-                            <option value="03">21</option>
-                            <option value="03">22</option>
-                            <option value="03">23</option>
-                            <option value="03">24</option>
-                            <option value="03">25</option>
-                            <option value="03">26</option>
-                            <option value="03">27</option>
-                            <option value="03">28</option>
-                            <option value="03">29</option>
-                            <option value="03">30</option>
-                            <option value="03">31</option>
-                        </select>
-                        <select ng-model="studioSession.date.time">
-                            <option value="Time">Time am/pm</option>
-                            <option value="10am">10:00am</option>
-                            <option value="1030am">10:30am</option>
-                            <option value="11am">11:00am</option>
-                            <option value="1130am">11:30am</option>
-                            <option value="12pm">12:00pm</option>
-                            <option value="1230pm">12:30pm</option>
-                            <option value="1pm">1:00pm</option>
-                            <option value="130pm">1:30pm</option>
-                            <option value="2pm">2:00pm</option>
-                            <option value="230pm">2:30pm</option>
-                            <option value="3pm">3:00pm</option>
-                            <option value="330pm">3:30pm</option>
-                            <option value="4pm">4:00pm</option>
-                            <option value="430pm">4:30pm</option>
-                        </select>
+                <div class="span5">
+                    <label>Date and Time</label>
+                    <div class="btn-toolbar" style="margin: 0;">
+                        <div class="btn-group">
+                            <select ng-model="lesson.date.month">
+                                <option value="Month">- Month -</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                            <select ng-model="lesson.date.day">
+                                <option value="Day">- Day -</option>
+                                <option value="01">1</option>
+                                <option value="02">2</option>
+                                <option value="03">3</option>
+                                <option value="03">4</option>
+                                <option value="03">5</option>
+                                <option value="03">6</option>
+                                <option value="03">7</option>
+                                <option value="03">8</option>
+                                <option value="03">9</option>
+                                <option value="03">10</option>
+                                <option value="03">11</option>
+                                <option value="03">12</option>
+                                <option value="03">13</option>
+                                <option value="03">14</option>
+                                <option value="03">15</option>
+                                <option value="03">16</option>
+                                <option value="03">17</option>
+                                <option value="03">18</option>
+                                <option value="03">19</option>
+                                <option value="03">20</option>
+                                <option value="03">21</option>
+                                <option value="03">22</option>
+                                <option value="03">23</option>
+                                <option value="03">24</option>
+                                <option value="03">25</option>
+                                <option value="03">26</option>
+                                <option value="03">27</option>
+                                <option value="03">28</option>
+                                <option value="03">29</option>
+                                <option value="03">30</option>
+                                <option value="03">31</option>
+                            </select>
+                            <select ng-model="lesson.date.time">
+                                <option value="Time">Time am/pm</option>
+                                <option value="10am">10:00am</option>
+                                <option value="1030am">10:30am</option>
+                                <option value="11am">11:00am</option>
+                                <option value="1130am">11:30am</option>
+                                <option value="12pm">12:00pm</option>
+                                <option value="1230pm">12:30pm</option>
+                                <option value="1pm">1:00pm</option>
+                                <option value="130pm">1:30pm</option>
+                                <option value="2pm">2:00pm</option>
+                                <option value="230pm">2:30pm</option>
+                                <option value="3pm">3:00pm</option>
+                                <option value="330pm">3:30pm</option>
+                                <option value="4pm">4:00pm</option>
+                                <option value="430pm">4:30pm</option>
+                            </select>
+                        </div>
                     </div>
+                    <label class="">Details</label>
+                    <textarea id="message" class="span4" rows="10" style="width: 96%" ng-model="lesson.details"></textarea>
                 </div>
-                <label class="">Details</label>
-                <textarea id="message" class="span3" rows="10" style="width: 96%" ng-model="studioSession.details"></textarea>
+                <label>Lesson ID</label>
+                <input type="text" class="span2" ng-model="lessonID">
+                <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="updateLesson(lessonID, lesson)">Update Lesson</button>
+                <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="deleteLesson(lessonID)">Delete Lesson</button>
             </div>
-            <label>Studio Session ID</label>
-            <input type="text" class="span2" ng-model="studioSessionID">
-            <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="updateStudioSession(studioSessionID, studioSession)">Update Studio Session</button>
-            <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="deleteStudioSession(studioSessionID)">Delete Studio Session</button>
+        </form>
+        <div>
+            <h4>Lessons</h4>
+            <ul ng-repeat="lesson in lessons">
+                <li>{{lesson.firstName}}</li>
+                <li>{{lesson.lastName}}</li>
+                <li>{{lesson.phone}}</li>
+                <li>{{lesson.email}}</li>
+                <li>{{lesson.instructor}}</li>
+                <li>{{lesson.date.month}}</li>
+                <li>{{lesson.detail}}</li>
+                <li>{{lesson.dateCreated}}</li>
+                <li>{{lesson._id}}</li>
+            </ul>
         </div>
-    </form>
-    <div>
-        <h4>Studio Sessions</h4>
-        <ul ng-repeat="session in sessions">
-            <li>{{session.firstName}}</li>
-            <li>{{session.lastName}}</li>
-            <li>{{session.phone}}</li>
-            <li>{{session.email}}</li>
-            <li>{{session.Instructor}}</li>
-            <li>{{session.date.month}} {{session.date.day}} {{session.date.time}}</li>
-            <li>{{session.detail}}</li>
-            <li>{{session.dateCreated}}</li>
-            <li>{{session._id}}</li>
-        </ul>
     </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+    <div class="container" ng-hide="recordingSessionAppointment">
+        <form class="well span7">
+            <legend class="text-center">Manage Studio Sessions</legend>
+            <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="newStudioSession(studioSession)">Add New Studio Session</button>
+            <div class="row">
+                <div class="span2">
+                    <label>First Name</label>
+                    <input type="text" class="span2" ng-model="studioSession.firstName">
+                    <label>Last Name</label>
+                    <input type="text" class="span2" ng-model="studioSession.lastName">
+                    <label>Phone</label>
+                    <input type="text" class="span2" ng-model="studioSession.phone">
+                    <label>Email</label>
+                    <input type="text" class="span2" ng-model="studioSession.email">
+                    <label>Sound Engineer</label>
+                    <input type="text" class="span2" ng-model="studioSession.instructor">
+                </div>
+                <div class="span5">
+                    <label>Date and Time</label>
+                    <div class="btn-toolbar" style="margin: 0;">
+                        <div class="btn-group">
+                            <select ng-model="studioSession.date.month">
+                                <option value="Month">- Month -</option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                            <select ng-model="studioSession.date.day">
+                                <option value="Day">- Day -</option>
+                                <option value="01">1</option>
+                                <option value="02">2</option>
+                                <option value="03">3</option>
+                                <option value="03">4</option>
+                                <option value="03">5</option>
+                                <option value="03">6</option>
+                                <option value="03">7</option>
+                                <option value="03">8</option>
+                                <option value="03">9</option>
+                                <option value="03">10</option>
+                                <option value="03">11</option>
+                                <option value="03">12</option>
+                                <option value="03">13</option>
+                                <option value="03">14</option>
+                                <option value="03">15</option>
+                                <option value="03">16</option>
+                                <option value="03">17</option>
+                                <option value="03">18</option>
+                                <option value="03">19</option>
+                                <option value="03">20</option>
+                                <option value="03">21</option>
+                                <option value="03">22</option>
+                                <option value="03">23</option>
+                                <option value="03">24</option>
+                                <option value="03">25</option>
+                                <option value="03">26</option>
+                                <option value="03">27</option>
+                                <option value="03">28</option>
+                                <option value="03">29</option>
+                                <option value="03">30</option>
+                                <option value="03">31</option>
+                            </select>
+                            <select ng-model="studioSession.date.time">
+                                <option value="Time">Time am/pm</option>
+                                <option value="10am">10:00am</option>
+                                <option value="1030am">10:30am</option>
+                                <option value="11am">11:00am</option>
+                                <option value="1130am">11:30am</option>
+                                <option value="12pm">12:00pm</option>
+                                <option value="1230pm">12:30pm</option>
+                                <option value="1pm">1:00pm</option>
+                                <option value="130pm">1:30pm</option>
+                                <option value="2pm">2:00pm</option>
+                                <option value="230pm">2:30pm</option>
+                                <option value="3pm">3:00pm</option>
+                                <option value="330pm">3:30pm</option>
+                                <option value="4pm">4:00pm</option>
+                                <option value="430pm">4:30pm</option>
+                            </select>
+                        </div>
+                    </div>
+                    <label class="">Details</label>
+                    <textarea id="message" class="span3" rows="10" style="width: 96%" ng-model="studioSession.details"></textarea>
+                </div>
+                <label>Studio Session ID</label>
+                <input type="text" class="span2" ng-model="studioSessionID">
+                <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="updateStudioSession(studioSessionID, studioSession)">Update Studio Session</button>
+                <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="deleteStudioSession(studioSessionID)">Delete Studio Session</button>
+            </div>
+        </form>
+        <div>
+            <h4>Studio Sessions</h4>
+            <ul ng-repeat="session in sessions">
+                <li>{{session.firstName}}</li>
+                <li>{{session.lastName}}</li>
+                <li>{{session.phone}}</li>
+                <li>{{session.email}}</li>
+                <li>{{session.Instructor}}</li>
+                <li>{{session.date.month}} {{session.date.day}} {{session.date.time}}</li>
+                <li>{{session.detail}}</li>
+                <li>{{session.dateCreated}}</li>
+                <li>{{session._id}}</li>
+            </ul>
+        </div>
+    </div>
 </div>

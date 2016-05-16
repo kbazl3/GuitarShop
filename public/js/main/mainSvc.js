@@ -5,13 +5,10 @@ angular.module("app")
             $http({
                 method: "GET",
                 url: "/api/products"
-            })
-            .then(function(response) {
-                console.log(response);
-                return response;
-            });
+                })
+                .then(function(response) {
+                    console.log(response);
+                    return response;
+                });
         };
-
-
-
-});
+    });

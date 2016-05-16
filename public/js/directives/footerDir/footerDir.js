@@ -5,4 +5,4 @@ angular.module("app")
             templateUrl: './js/directives/footerDir/footerDir.html',
             restrict: 'E'
         };
-  });
+    });

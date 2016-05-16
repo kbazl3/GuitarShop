@@ -1,48 +1,48 @@
 <header-dir></header-dir>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <p class="lead">Kyle's Guitar Store</p>
-                <div class="list-group">
-                    <a href="#" class="list-group-item">Guitars</a>
-                    <a href="#" class="list-group-item">Electric Basses</a>
-                    <a href="#" class="list-group-item">Amps</a>
-                    <a href="#" class="list-group-item">All</a>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">Kyle's Guitar Store</p>
+            <div class="list-group">
+                <a href="#" class="list-group-item">Guitars</a>
+                <a href="#" class="list-group-item">Electric Basses</a>
+                <a href="#" class="list-group-item">Amps</a>
+                <a href="#" class="list-group-item">All</a>
             </div>
-            <div class="col-md-9">
-                <div class="row carousel-holder">
-                    <div class="col-md-12">
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <img class="slide-image" src="http://assets2.lionseek.com/item/guitars/medium_108205-fs-1995-ibanez-atk300.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="http://assets2.lionseek.com/item/guitars/medium_562887-fs-ft-ibanez-prestige-sr20th4.jpg" alt="">
-                                </div>
-                                <div class="item">
-                                    <img class="slide-image" src="http://melacantomelasuono.it/_images/-T1437659282T-1869-duvell-elite.jpg" alt="">
-                                </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row carousel-holder">
+                <div class="col-md-12">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="slide-image" src="http://assets2.lionseek.com/item/guitars/medium_108205-fs-1995-ibanez-atk300.jpg" alt="">
                             </div>
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
+                            <div class="item">
+                                <img class="slide-image" src="http://assets2.lionseek.com/item/guitars/medium_562887-fs-ft-ibanez-prestige-sr20th4.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="slide-image" src="http://melacantomelasuono.it/_images/-T1437659282T-1869-duvell-elite.jpg" alt="">
+                            </div>
                         </div>
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-                <!-- <div class="row">
+    </div>
+    <!-- <div class="row">
                     <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="product in products">
                         <div class="thumbnail">
                             <img ng-src={{product.image}} alt="">
@@ -58,35 +58,35 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="row">
-                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="product in products">
-                        <div class="thumbnail">
-                            <div data-toggle="modal" data-target="#{{product._id}}">
-                                <a href=""><img ng-src={{product.image}} alt=""></a>
-                            </div>
-                            <div class="caption">
-                                <h4 class="pull-right">${{product.price}}</h4>
-                                <h4>{{product.make}}</h4>
-                                <p>{{product.model}}</p>
-                                <div class="ratings">
-                                    <p class="pull-right">Condition: {{product.condition}}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- MODAL -->
-                        <div class="modal fade" id={{product._id}}>
-                            <div class="modal-body">
-                                <img src={{product.image}} alt="" />
-                                <p>
-                                    {{product.summary}}
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
+    <div class="row">
+        <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="product in products">
+            <div class="thumbnail">
+                <div data-toggle="modal" data-target="#{{product._id}}">
+                    <a href=""><img ng-src={{product.image}} alt=""></a>
+                </div>
+                <div class="caption">
+                    <h4 class="pull-right">${{product.price}}</h4>
+                    <h4>{{product.make}}</h4>
+                    <p>{{product.model}}</p>
+                    <div class="ratings">
+                        <p class="pull-right">Condition: {{product.condition}}</p>
                     </div>
                 </div>
+            </div>
+            <!-- MODAL -->
+            <div class="modal fade" id={{product._id}}>
+                <div class="modal-body">
+                    <img src={{product.image}} alt="" />
+                    <p>
+                        {{product.summary}}
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    <footer-dir></footer-dir>
+<footer-dir></footer-dir>

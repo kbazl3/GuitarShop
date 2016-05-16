@@ -1,4 +1,4 @@
-angular.module("app", ['ui.router'])
+angular.module("app", ['ui.router', 'ngMessages'])
     .config(function($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/');
@@ -10,16 +10,16 @@ angular.module("app", ['ui.router'])
                 controller: "mainCtrl"
             })
 
-            .state("admin", {
-                url: '/admin',
-                templateUrl: "./js/admin/admin.html",
-                controller: "adminCtrl"
-            })
+        .state("admin", {
+            url: '/admin',
+            templateUrl: "./js/admin/admin.html",
+            controller: "adminCtrl"
+        })
 
-            .state("services", {
-                url: '/services',
-                templateUrl: "./js/services/services.html",
-                controller: "servicesCtrl"
-            });
+        .state("services", {
+            url: '/services',
+            templateUrl: "./js/services/services.html",
+            controller: "servicesCtrl"
+        });
 
     });

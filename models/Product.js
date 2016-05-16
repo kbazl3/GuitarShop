@@ -4,18 +4,18 @@ var mongoose = require('mongoose'),
 var productSchema = new Schema({
     make: {
         type: String
-        // required: true,
-        // unique: true,
-        // index: true
+            // required: true,
+            // unique: true,
+            // index: true
     },
     price: {
         type: Number
-        // required: true,
-        // min: 0
+            // required: true,
+            // min: 0
     },
     image: {
         type: String
-        // required: true
+            // required: true
     },
 
     model: {
@@ -30,7 +30,10 @@ var productSchema = new Schema({
     category: {
         type: String
     },
-    buyInDate: { type: Date, default: new Date()}
+    buyInDate: {
+        type: Date,
+        default: new Date()
+    }
 });
 
 module.exports = mongoose.model("Product", productSchema);

@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html ng-app="app">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Guitar Shop</title>
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  </head>
-  <body>
+</head>
 
-      <ui-view></ui-view>
+<body>
+
+    <ui-view></ui-view>
 
     <!-- ANGULAR -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
@@ -26,15 +27,16 @@
     <!-- CONTROLLERS -->
     <script src="./js/admin/adminCtrl.js" charset="utf-8"></script>
     <script src="./js/main/mainCtrl.js" charset="utf-8"></script>
+    <script src="./js/services/servicesCtrl.js" charset="utf-8"></script>
     <!-- SERVICES -->
     <script src="./js/main/mainSvc.js" charset="utf-8"></script>
     <script src="./js/admin/adminSvc.js" charset="utf-8"></script>
     <!-- DIRECTIVES -->
     <script src="./js/directives/headerDir/headerDir.js" charset="utf-8"></script>
     <script src="./js/directives/footerDir/footerDir.js" charset="utf-8"></script>
+    <!-- NG-MESSAGES -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-messages/1.5.2/angular-messages.js"></script>
 
-    <script src="./js/scrolling-nav.js" charset="utf-8"></script>
-    <script src="./js/jquery.easing.min.js" charset="utf-8"></script>
+</body>
 
-  </body>
 </html>

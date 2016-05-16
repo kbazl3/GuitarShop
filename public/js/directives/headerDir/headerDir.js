@@ -6,4 +6,4 @@ angular.module("app")
             restrict: 'E'
         };
 
-  });
+    });

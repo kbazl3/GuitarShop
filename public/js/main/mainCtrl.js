@@ -9,6 +9,4 @@ angular.module("app")
         $scope.alertz = function() {
             alert('d')
         }
-
-
-});
+    });
