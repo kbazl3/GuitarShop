@@ -22,22 +22,14 @@ angular.module("app", ['ui.router', 'ngMessages'])
                 controller: "homeCtrl"
             })
 
-            .state("services", {
-                url: '/services',
-                templateUrl: "./js/services/services.html",
-                controller: "servicesCtrl"
-            })
-
             .state("lessons", {
                 url: '/lessons',
-                templateUrl: "./js/lessons/lessons.html",
-                controller: "servicesCtrl"
+                templateUrl: "./js/lessons/lessons.html"
             })
 
             .state("studio", {
                 url: '/studio',
-                templateUrl: "./js/studio/studio.html",
-                controller: "servicesCtrl"
+                templateUrl: "./js/studio/studio.html"
             })
 
             .state("setup", {

@@ -1,7 +1,10 @@
+
+html,
 body {
-    padding-top: 70px;
-    /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    width: 100%;
+    height: 100%;
 }
+
 .slide-image {
     width: 100%;
 }
@@ -36,6 +39,7 @@ input {
     height: 130px;
     overflow: hidden;
 }
+
 .products {
     border: 1px solid #000;
     margin-bottom: 10px;
@@ -131,20 +135,12 @@ footer {
 
 
 
-
-
-
 /*!
  * Start Bootstrap - Creative Bootstrap Theme (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-}
 
 body {
     font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
@@ -314,12 +310,27 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    background-image: url("http://randomwallpapers.net/guitar-shop-1920x1080-wallpaper234113.jpg");
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+}
+
+.productContainer {
+    padding-top: 100px;
+}
+
+.homeHeader {
+    background-image: url("http://randomwallpapers.net/guitar-shop-1920x1080-wallpaper234113.jpg");
+}
+
+.studioHeader {
+    background-image: url("http://wallpapercave.com/wp/VrG9gs7.jpg");
+}
+
+.lessonHeader {
+    background-image: url("http://www.desktopwallpapers4.me/wallpapers/music/1920x1080/1/8081-playing-the-guitar-1920x1080-music-wallpaper.jpg");
 }
 
 header .header-content {
@@ -585,24 +596,136 @@ fieldset[disabled] .btn-primary.active {
     padding: 15px 30px;
 }
 
-::-moz-selection {
-    text-shadow: none;
-    color: #fff;
-    background: #222;
+
+
+
+
+
+
+
+
+
+
+
+.top {
+  background:#000;
+  a{
+    padding:10px 0px;
+    display:inline-block;
+    color:white;
+  }
+  .left{
+    a{
+      margin-right:15px;
+    }
+  }
+  .right{
+    text-align:right;
+    a{
+      margin-left:15px;
+    }
+  }
 }
 
-::selection {
-    text-shadow: none;
-    color: #fff;
-    background: #222;
+.header {
+  padding:10px 0px;
+  border-bottom:1px solid #ccc;
+
+  .navbar-nav>li>a {
+    padding:22px 10px;
+  }
 }
 
-img::selection {
-    color: #fff;
-    background: 0 0;
+.mobile-nav {
+  display:none;
+  position:absolute;
+  left:0;
+  top:101px;
+  background:black;
+  width:100%;
+  padding:0px 15px;
+  z-index:999;
 }
 
-img::-moz-selection {
-    color: #fff;
-    background: 0 0;
+.content {
+  .header-box {
+    background:black;
+    background-size:cover;
+    height:150px;
+    width:100%;
+    margin-bottom:30px;
+    padding: 30px 0px;
+    color:white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    h1 {
+      margin:0px;
+    }
+    p {
+      margin:0px;
+    }
+  }
+  .captcha-box {
+    background:black;
+    padding:15px 15px;
+    color:white;
+    text-align:center;
+    p {
+      padding:0px;
+      margin:0px;
+    }
+  }
+  .content-box {
+    margin-bottom:30px;
+  }
+  .gray-content-box {
+    margin-bottom:30px;
+    padding:30px 0px;
+    background:#EBEBEB;
+    border-top:1px solid #DEDEDE;
+    border-bottom:1px solid #DEDEDE;
+  }
 }
+
+.footer {
+  padding:0px 0px 15px 0px;
+  background:black;
+  color:white;
+}
+
+
+@media(max-width:767px){
+  .top {
+    a {
+      padding:5px 0px;
+    }
+    .right{
+      a{
+        margin-left:0px!important;
+        margin-right:8px!important;
+      }
+      text-align:left;
+    }
+  }
+  .header {
+    padding:5px 0px;
+    .show-mobile-nav{
+      font-size:30px;
+      color:#000;
+      padding:9px;
+      float:right;
+    }
+  }
+  .content {
+    .header-box {
+      padding:10px;
+    }
+    .captcha-box {
+      margin-bottom:30px;
+    }
+  }
+}
+@media(min-width:768px){}
+@media(min-width:992px){}
+@media(min-width:1200px){}
