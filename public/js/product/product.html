@@ -2,47 +2,28 @@
 
 <div class="container productContainer">
     <div class="row">
-        <div class="col-md-3">
-            <div class="list-group">
-                <a href="#" class="list-group-item">Guitars</a>
-                <a href="#" class="list-group-item">Electric Basses</a>
-                <a href="#" class="list-group-item">Amps</a>
-                <a href="#" class="list-group-item">All</a>
-            </div>
+        <div class="col-md-2">
+            <div>Filter By</div>
+            <select class="form-control" name ="orderByKey" ng-model="sortBy.category">
+                <option value="None">Amp</option>
+                <option value="Name">Guitar</option>
+                <option value="Address">Bass</option>
+                <option value="Address">All</option>
+                <option value="Address">Price</option>
+            </select>
         </div>
         <div class="col-md-9">
-            <div class="row carousel-holder">
-                <div class="col-md-12">
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <img class="slide-image" src="./../images/guitarAmp.jpg" alt="">
-                            </div>
-                            <div class="item">
-                                <img class="slide-image" src="http://assets2.lionseek.com/item/guitars/medium_89739-hohner-bbass-fire-sale-2.jpg" alt="">
-                            </div>
-                            <div class="item">
-                                <img class="slide-image" src="http://cdn.shopify.com/s/files/1/0457/6517/t/6/assets/rogue-newsletter.jpg?6212567188684656036" alt="">
-                            </div>
-                        </div>
-                        <a class="left carousel-control" data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                        <a class="right carousel-control" data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </a>
+            <div class="col-md-12">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img class="slide-image" src="./images/Guitar-Wall800x300.jpg.jpg" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="product in products | orderBy:'price':false">
+        <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="product in products | orderBy:'category'">
             <div class="thumbnail">
                 <div data-toggle="modal" data-target="#{{product._id}}">
                     <a href="" class="prodImg"><img ng-src={{product.image}} alt=""></a>
@@ -64,8 +45,9 @@
                             <h4 class="modal-title" id="myModalLabel">{{product.make}}</h4>
                         </div>
                         <div class="modal-body">
-                            <img src={{product.image}} alt=""/>
-                            <p>{{product.summary}}<p>
+                            <img src={{product.image}} alt="" />
+                            <p>{{product.summary}}
+                                <p>
                         </div>
                     </div>
                 </div>
