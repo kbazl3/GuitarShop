@@ -2,21 +2,12 @@
 
 <div class="container productContainer">
     <div class="row">
-        <div class="col-md-2">
-            <!-- <div>Filter By</div>
-            <select class="form-control" name ="orderByKey" ng-model="sortBy.category">
-                <option value="None">Amp</option>
-                <option value="Name">Guitar</option>
-                <option value="Address">Bass</option>
-                <option value="Address">All</option>
-                <option value="Address">Price</option>
-            </select> -->
-        </div>
-        <div class="col-md-9">
+
+        <div class="col-md-12">
             <div class="col-md-12">
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img class="slide-image" src="./images/Guitar-Wall800x300.jpg.jpg" alt="">
+                        <img class="slide-image" src="./images/Guitar-Wall800x300.png" alt="">
                     </div>
                 </div>
             </div>
@@ -24,24 +15,24 @@
         <div class="col-lg-6">
         <div>Filter By Types of Products</div>
         <select class="form-control" name ="orderByKey" ng-model="sortBy.category">
-            <option value="Amp">Amp</option>
-            <option value="Guitar">Guitar</option>
-            <option value="Bass">Bass</option>
+            <option value="AmpType">Amp</option>
+            <option value="GuitarType">Guitar</option>
+            <option value="BassType">Bass</option>
             <option value="a">All</option>
         </select>
     </div>
     </div>
 
     <div class="row">
-        <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="product in products | filter:sortBy.category | filter: orderBy.price">
+        <div class="col-sm-3 col-lg-3 col-md-3" ng-repeat="product in products | filter:sortBy.category | filter: orderBy.price">
             <div class="thumbnail">
                 <div data-toggle="modal" data-target="#{{product._id}}">
                     <a href="" class="prodImg"><img ng-src={{product.image}} alt=""></a>
                 </div>
                 <div class="caption">
                     <h4 class="pull-right">${{product.price}}</h4>
-                    <h4>{{product.make}}</h4>
-                    <p>{{product.model}}</p>
+                    <h3 class="productMake">{{product.make}}</h3>
+                    <p class="text-center prodModel">{{product.model}}</p>
                     <div class="ratings">
                         <p class="pull-right">Condition: {{product.condition}}</p>
                     </div>
@@ -56,8 +47,7 @@
                         </div>
                         <div class="modal-body">
                             <img src={{product.image}} alt="" />
-                            <p>{{product.summary}}
-                                <p>
+                            <p>{{product.summary}}<p>
                         </div>
                     </div>
                 </div>

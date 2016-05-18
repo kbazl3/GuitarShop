@@ -15,6 +15,10 @@ input {
 .carousel-holder {
     margin-bottom: 30px;
 }
+
+.productMake {
+    border-bottom: 1px solid black;
+}
 .pull-right img {
     margin-left: 30px;
 }
@@ -37,13 +41,19 @@ input {
 }
 .caption {
     height: 130px;
-    overflow: hidden;
+    /*overflow: hidden;*/
+}
+
+.prodModel {
+    /*border: 1px solid #000;*/
+    /*border-radius: 2px;*/
+    padding: 3px;
 }
 
 .products {
-    border: 1px solid #000;
     margin-bottom: 10px;
 }
+
 .caption h4 {
     white-space: nowrap;
 }
@@ -59,7 +69,7 @@ input {
 }
 .thumbnail {
     padding: 0;
-    height: 580px;
+    height: 485px;
 }
 .thumbnail .caption-full {
     padding: 9px;
