@@ -16,7 +16,8 @@
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2 class="section-heading">Bring music to life!</h2>
                 <hr class="light">
-                <p class="text-faded">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="text-faded">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
         </div>
     </div>
@@ -45,24 +46,28 @@
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2 class="section-heading">Let us help you make Music!</h2>
                 <hr class="primary">
-                <p>Ready to start your next project with us? Need a guitar repair?  Want to get your guitar skills up to par? Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                <p>Ready to start your next project with us? Need a guitar repair? Want to get your guitar skills up to par? Give us a call or send us an email and we will get back to you as soon as possible!</p>
             </div>
-            <form action="https://getsimpleform.com/messages?form_api_token=dfddebfe4d270b17e5c9728e6fa77e6a" method="post" enctype="multipart/form-data" name="Lessons">
+            <div class="well col-lg-12">
+                <form action="https://getsimpleform.com/messages?form_api_token=dfddebfe4d270b17e5c9728e6fa77e6a" method="post" enctype="multipart/form-data" name="Lessons">
 
-                <br><label>Name</label>
-                <input type="text" name="name" class="form-control" placeholder="Name">
+                    <br>
+                    <label>Name</label>
+                    <input type="text" name="StudioName" class="form-control" placeholder="Name">
 
-                <label>Email address</label>
-                <br>
-                <small class="text-muted">We'll never share your email with anyone else.</small>
-                <input type="email" class="form-control" name="_replyto" placeholder="Enter email">
+                    <label>Email address</label>
+                    <br>
+                    <small class="text-muted">We'll never share your email with anyone else.</small>
+                    <input type="studioEmail" class="form-control" name="_replyto" placeholder="Enter email">
 
-                <label>Phone Number</label>
-                <input type="text" name="phone" class="form-control" placeholder="Name">
+                    <label>Phone Number</label>
+                    <input type="text" name="studioPhone" class="form-control" placeholder="Name">
 
-                <label>Tell us about your project and what you would like done to record</label>
-                <textarea class="form-control" name="details" rows="4"></textarea>
-            </form>
+                    <label>Tell us about your project and what you would like done to record</label>
+                    <textarea class="form-control" name="studioDetails" rows="4"></textarea>
+                    <input class="btn btn-default" type="submit" value="Send">
+                </form>
+            </div>
         </div>
     </div>
 </section>

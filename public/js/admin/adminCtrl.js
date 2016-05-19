@@ -88,7 +88,7 @@ angular.module("app")
                     $scope.lessons = lessons;
                 });
         };
-        callGetLessons()
+        callGetLessons();
 
         $scope.newLesson = function(lesson) {
             adminSvc.addLesson(lesson);
@@ -105,9 +105,15 @@ angular.module("app")
             callGetLessons();
         };
 
+        var events = [];
         var callGetStudioSessions = function() {
             adminSvc.getStudioSessions()
                 .then(function(sessions) {
+                    console.log(sessions);
+                    sessions.forEach(function(item) {
+                        events.push({title: item.lastName, start: new Date(2016, 4, parseInt(item.date.day))});
+                    });
+                    console.log(events);
                     $scope.sessions = sessions;
                 });
         };
@@ -122,12 +128,29 @@ angular.module("app")
         $scope.deleteStudioSession = function(id) {
             adminSvc.deleteStudioSession(id);
             callGetStudioSessions();
-        }
+        };
 
         $scope.updateStudioSession = function(id, session) {
             adminSvc.updateStudioSession(id, session);
             callGetStudioSessions();
-        }
+        };
+
+        // *************************** calendar ****************
+        // var events = [
+        //     {title: "Mom's Birthday", start: new Date(2016, 4, 25 11:13:00)},
+        //     {title: "Party Time", start: new Date(2016, 4, 12), end: new Date(2016, 4, 16)}
+        // ];
+
+        $scope.eventSources = [events];
+
+        $scope. calOptions = {
+            editable: true,
+            header: {
+                left: 'prev',
+                center: 'title',
+                right: 'next'
+            }
+        };
 
 
     });

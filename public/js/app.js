@@ -1,4 +1,4 @@
-angular.module("app", ['ui.router', 'ngMessages'])
+angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar'])
     .config(function($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/');
