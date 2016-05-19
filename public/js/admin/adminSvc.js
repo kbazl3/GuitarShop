@@ -1,5 +1,5 @@
 angular.module("app")
-    .service("adminSvc", function($http) {
+    .service("adminSvc", function($http, $state) {
 
         this.getProducts = function() {
             return $http({
@@ -67,6 +67,7 @@ angular.module("app")
                     data: user
                 })
                 .then(function(response) {
+                    $state.go('admin', {id: response.data._id});
                     return response;
                 });
         };
@@ -74,7 +75,7 @@ angular.module("app")
         this.getUser = function() {
             return $http({
                     method: 'GET',
-                    url: 'api/me'
+                    url: '/api/me'
                 })
                 .then(function(response) {
                     console.log(response);
@@ -89,6 +90,7 @@ angular.module("app")
                 })
                 .then(function(response) {
                     console.log(response);
+                    $state.go('login')
                     return response;
                 });
         };

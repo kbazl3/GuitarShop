@@ -48,7 +48,7 @@ app.post('/api/adminLogin', passport.authenticate('local', {
 
 app.get('/me', isAuthed, adminCtrl.me);
 
-app.get('/logout', function(req, res, next) {
+app.get('/api/logout', function(req, res, next) {
     req.logout();
     return res.status(200).send('logged out');
 });

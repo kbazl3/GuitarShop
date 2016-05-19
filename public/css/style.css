@@ -93,7 +93,10 @@ input {
 }
 
 /*PRODUCT PAGE*/
-
+.productsPageWrapper {
+    /*background: #f7f8e6;*/
+    background: #dddad6;
+}
 .caption h3 {
     border-bottom: 1px solid black;
 }
@@ -105,39 +108,43 @@ input {
     margin-bottom: 10px;
 }
 .productContainer {
-    padding-top: 100px;
+    padding-top: 50px;
 }
 .prodBannerImage {
     width: 100%;
 }
-.carousel-holder {
-    margin-bottom: 30px;
-}
-.carousel-control, .item {
-    border-radius: 4px;
-}
-.thumbnail a {
-    width: 100%;
-    border-radius: 10px;
-}
+
 .ratings {
     padding-right: 10px;
     padding-left: 10px;
     color: #d17581;
 }
-.thumbnail {
-    padding: 0;
-    height: auto;
-}
-.thumbnail .caption-full {
-    padding: 9px;
-    color: #333;
-}
 .caption {
     height: 130px;
+    background:#848280;
 }
-.caption h4 {
-    white-space: nowrap;
+.prodImageContainer {
+    background:#848280;
+}
+.dollar {
+    color: green;
+    font-size: 1.5em;
+}
+
+.caption h4, .caption p {
+    color: white;
+}
+
+.modal-header h4 {
+    border-bottom: 1px solid black;
+}
+
+.modal-body {
+    background:#F7F8E6;
+}
+
+.modal-header, .modal-footer {
+    background:#ECE7F4;
 }
 
 /*SETUP PAGE*/
@@ -167,14 +174,12 @@ input {
 }
 
 /*ADMIN PAGE*/
-
 .calendar {
     margin-left: auto;
     margin-right: auto;
 }
 
 /*FOOTER DIRECTIVE*/
-
 .pull-right img {
     margin-left: 30px;
 }

@@ -1,14 +1,11 @@
 <header-dir></header-dir>
+<br><br><br>
 <h2>Admin Page</h2>
-
-<div ng-hide="adminLoginBoxes">
-    <input ng-model="credentials.username" placeholder="admin username">
-    <input type="password" ng-model="credentials.password" placeholder="admin username">
-    <button type="button" ng-click='adminLogin()'>Login</button>
-</div>
+<button type="button" ng-click="logout()" name="button">Logout</button>
 
 
-<div class="adminContainer" ng-hide="adminUser">
+
+<div class="adminContainer">
     <button type="button" ng-click="toggleManageProducts()">Manage Products</button>
     <button type="button" ng-click="toggleManageAdmins()">Manage Admin Users</button>
     <button type="button" ng-click="toggleLessonsAppointment()">Manage Guitar Lessons</button>
@@ -221,52 +218,52 @@
                         <div class="btn-group">
                             <select ng-model="studioSession.date.month">
                                 <option value="Month">- Month -</option>
-                                <option value="January">January</option>
-                                <option value="February">February</option>
-                                <option value="March">March</option>
-                                <option value="April">April</option>
-                                <option value="May">May</option>
-                                <option value="June">June</option>
-                                <option value="July">July</option>
-                                <option value="August">August</option>
-                                <option value="September">September</option>
-                                <option value="October">October</option>
-                                <option value="November">November</option>
-                                <option value="December">December</option>
+                                <option value=0>January</option>
+                                <option value=1>February</option>
+                                <option value=2>March</option>
+                                <option value=3>April</option>
+                                <option value=4>May</option>
+                                <option value=5>June</option>
+                                <option value=6>July</option>
+                                <option value=7>August</option>
+                                <option value=8>September</option>
+                                <option value=9>October</option>
+                                <option value=10>November</option>
+                                <option value=11>December</option>
                             </select>
                             <select ng-model="studioSession.date.day">
                                 <option value="Day">- Day -</option>
                                 <option value="01">1</option>
                                 <option value="02">2</option>
                                 <option value="03">3</option>
-                                <option value="03">4</option>
-                                <option value="03">5</option>
-                                <option value="03">6</option>
-                                <option value="03">7</option>
-                                <option value="03">8</option>
-                                <option value="03">9</option>
-                                <option value="03">10</option>
-                                <option value="03">11</option>
-                                <option value="03">12</option>
-                                <option value="03">13</option>
-                                <option value="03">14</option>
-                                <option value="03">15</option>
-                                <option value="03">16</option>
-                                <option value="03">17</option>
-                                <option value="03">18</option>
-                                <option value="03">19</option>
-                                <option value="03">20</option>
-                                <option value="03">21</option>
-                                <option value="03">22</option>
-                                <option value="03">23</option>
-                                <option value="03">24</option>
-                                <option value="03">25</option>
-                                <option value="03">26</option>
-                                <option value="03">27</option>
-                                <option value="03">28</option>
-                                <option value="03">29</option>
-                                <option value="03">30</option>
-                                <option value="03">31</option>
+                                <option value="04">4</option>
+                                <option value="05">5</option>
+                                <option value="06">6</option>
+                                <option value="07">7</option>
+                                <option value="08">8</option>
+                                <option value="09">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
                             </select>
                             <select ng-model="studioSession.date.time">
                                 <option value="Time">Time am/pm</option>

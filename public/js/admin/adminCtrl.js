@@ -1,5 +1,6 @@
 angular.module("app")
-    .controller("adminCtrl", function($scope, adminSvc, $state) {
+    .controller("adminCtrl", function($scope, adminSvc, $state, sessions) {
+        console.log("sessions", sessions);
 
         $scope.adminUser = true;
         $scope.manageProducts = true;
@@ -47,17 +48,17 @@ angular.module("app")
         callGetProducts();
 
 
-        $scope.adminLogin = function() {
-            adminSvc.adminLogin($scope.credentials)
-                .then(function(response) {
-                    if (response) {
-                        $scope.adminUser = false;
-                        $scope.adminLoginBoxes = true;
-                    } else {
-                        alert('Insufficient Admin Credentials');
-                    }
-                });
-        };
+        // $scope.adminLogin = function() {
+        //     adminSvc.adminLogin($scope.credentials)
+        //         .then(function(response) {
+        //             if (response) {
+        //                 $scope.adminUser = false;
+        //                 $scope.adminLoginBoxes = true;
+        //             } else {
+        //                 alert('Insufficient Admin Credentials');
+        //             }
+        //         });
+        // };
 
         var callGetAdmins = function() {
             adminSvc.getAdmins()
@@ -66,6 +67,10 @@ angular.module("app")
                 });
         };
         callGetAdmins();
+
+        $scope.logout = function() {
+            adminSvc.logout();
+        };
 
         $scope.addAdmin = function(admin) {
             adminSvc.addAdmin(admin);
@@ -105,17 +110,53 @@ angular.module("app")
             callGetLessons();
         };
 
-        var events = [];
+        // *************************** calendar ****************
+
+        var obj = {
+            year: 2016,
+            month: 4,
+            day: 3
+        };
+
+        // var events = [{
+        //     title: "Mom's Birthday",
+        //     start: new Date(obj.year, obj.month, obj.day)
+        // }, {
+        //     title: "Party Time",
+        //     start: new Date(2016, 4, 12),
+        //     end: new Date(2016, 4, 16)
+        // }, {
+        //     title: "Mom's Birthday",
+        //     start: new Date(obj.year, obj.month, obj.day)
+        // }];
+        // console.log("events", events);
+
+        events = [];
+        $scope.eventSources = [events];
         var callGetStudioSessions = function() {
             adminSvc.getStudioSessions()
                 .then(function(sessions) {
-                    console.log(sessions);
                     sessions.forEach(function(item) {
-                        events.push({title: item.lastName, start: new Date(2016, 4, parseInt(item.date.day))});
+                        events.push({
+                            title: item.lastName,
+                            start: new Date(2016, item.date.month, item.date.day)
+                        });
                     });
-                    console.log(events);
                     $scope.sessions = sessions;
                 });
+
+        };
+
+
+
+        // $scope.eventSources = [events];
+        $scope.calOptions = {
+            editable: true,
+            header: {
+                left: 'prev',
+                center: 'title',
+                right: 'next'
+            }
         };
         callGetStudioSessions();
 
@@ -135,22 +176,8 @@ angular.module("app")
             callGetStudioSessions();
         };
 
-        // *************************** calendar ****************
-        // var events = [
-        //     {title: "Mom's Birthday", start: new Date(2016, 4, 25 11:13:00)},
-        //     {title: "Party Time", start: new Date(2016, 4, 12), end: new Date(2016, 4, 16)}
-        // ];
 
-        $scope.eventSources = [events];
 
-        $scope. calOptions = {
-            editable: true,
-            header: {
-                left: 'prev',
-                center: 'title',
-                right: 'next'
-            }
-        };
 
 
     });

@@ -10,37 +10,60 @@ angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar'])
                 controller: "productCtrl"
             })
 
-            .state("admin", {
-                url: '/admin',
-                templateUrl: "./js/admin/admin.html",
-                controller: "adminCtrl"
-            })
+        .state("admin", {
+            url: '/admin/:id',
+            templateUrl: "./js/admin/admin.html",
+            controller: "adminCtrl",
+            resolve: {
+                sessions: ["adminSvc", function(adminSvc) {
+                    adminSvc.getStudioSessions()
+                        .then(function(sessions) {
+                            var events = [];
+                            console.log(sessions);
+                            sessions.forEach(function(item) {
+                                events.push({
+                                    title: item.lastName + ": " + item.details,
+                                    start: new Date()
+                                });
+                            });
+                            return events;
+                        });
+                }]
+            }
+        })
 
-            .state("home", {
-                url: '/',
-                templateUrl: "./js/home/home.html",
-                controller: "homeCtrl"
-            })
+        .state("home", {
+            url: '/',
+            templateUrl: "./js/home/home.html",
+            controller: "homeCtrl"
+        })
 
-            .state("lessons", {
-                url: '/lessons',
-                templateUrl: "./js/lessons/lessons.html"
-            })
+        .state("login", {
+            url: '/login',
+            templateUrl: "./js/login/login.html",
+            controller: "loginCtrl"
+        })
 
-            .state("studio", {
-                url: '/studio',
-                templateUrl: "./js/studio/studio.html"
-            })
+        .state("lessons", {
+            url: '/lessons',
+            templateUrl: "./js/lessons/lessons.html"
+        })
 
-            .state("setup", {
-                url: '/setup',
-                templateUrl: "./js/setup/setup.html"
-            });
+        .state("studio", {
+            url: '/studio',
+            templateUrl: "./js/studio/studio.html"
+        })
+
+        .state("setup", {
+            url: '/setup',
+            templateUrl: "./js/setup/setup.html"
+        });
 
     }]);
 
 angular.module("app")
-    .controller("adminCtrl", ["$scope", "adminSvc", "$state", function($scope, adminSvc, $state) {
+    .controller("adminCtrl", ["$scope", "adminSvc", "$state", "sessions", function($scope, adminSvc, $state, sessions) {
+        console.log("sessions", sessions);
 
         $scope.adminUser = true;
         $scope.manageProducts = true;
@@ -88,17 +111,17 @@ angular.module("app")
         callGetProducts();
 
 
-        $scope.adminLogin = function() {
-            adminSvc.adminLogin($scope.credentials)
-                .then(function(response) {
-                    if (response) {
-                        $scope.adminUser = false;
-                        $scope.adminLoginBoxes = true;
-                    } else {
-                        alert('Insufficient Admin Credentials');
-                    }
-                });
-        };
+        // $scope.adminLogin = function() {
+        //     adminSvc.adminLogin($scope.credentials)
+        //         .then(function(response) {
+        //             if (response) {
+        //                 $scope.adminUser = false;
+        //                 $scope.adminLoginBoxes = true;
+        //             } else {
+        //                 alert('Insufficient Admin Credentials');
+        //             }
+        //         });
+        // };
 
         var callGetAdmins = function() {
             adminSvc.getAdmins()
@@ -107,6 +130,10 @@ angular.module("app")
                 });
         };
         callGetAdmins();
+
+        $scope.logout = function() {
+            adminSvc.logout();
+        };
 
         $scope.addAdmin = function(admin) {
             adminSvc.addAdmin(admin);
@@ -146,17 +173,53 @@ angular.module("app")
             callGetLessons();
         };
 
-        var events = [];
+        // *************************** calendar ****************
+
+        var obj = {
+            year: 2016,
+            month: 4,
+            day: 3
+        };
+
+        // var events = [{
+        //     title: "Mom's Birthday",
+        //     start: new Date(obj.year, obj.month, obj.day)
+        // }, {
+        //     title: "Party Time",
+        //     start: new Date(2016, 4, 12),
+        //     end: new Date(2016, 4, 16)
+        // }, {
+        //     title: "Mom's Birthday",
+        //     start: new Date(obj.year, obj.month, obj.day)
+        // }];
+        // console.log("events", events);
+
+        events = [];
+        $scope.eventSources = [events];
         var callGetStudioSessions = function() {
             adminSvc.getStudioSessions()
                 .then(function(sessions) {
-                    console.log(sessions);
                     sessions.forEach(function(item) {
-                        events.push({title: item.lastName, start: new Date(2016, 4, parseInt(item.date.day))});
+                        events.push({
+                            title: item.lastName,
+                            start: new Date(2016, item.date.month, item.date.day)
+                        });
                     });
-                    console.log(events);
                     $scope.sessions = sessions;
                 });
+
+        };
+
+
+
+        // $scope.eventSources = [events];
+        $scope.calOptions = {
+            editable: true,
+            header: {
+                left: 'prev',
+                center: 'title',
+                right: 'next'
+            }
         };
         callGetStudioSessions();
 
@@ -176,28 +239,14 @@ angular.module("app")
             callGetStudioSessions();
         };
 
-        // *************************** calendar ****************
-        // var events = [
-        //     {title: "Mom's Birthday", start: new Date(2016, 4, 25 11:13:00)},
-        //     {title: "Party Time", start: new Date(2016, 4, 12), end: new Date(2016, 4, 16)}
-        // ];
 
-        $scope.eventSources = [events];
 
-        $scope. calOptions = {
-            editable: true,
-            header: {
-                left: 'prev',
-                center: 'title',
-                right: 'next'
-            }
-        };
 
 
     }]);
 
 angular.module("app")
-    .service("adminSvc", ["$http", function($http) {
+    .service("adminSvc", ["$http", "$state", function($http, $state) {
 
         this.getProducts = function() {
             return $http({
@@ -265,6 +314,7 @@ angular.module("app")
                     data: user
                 })
                 .then(function(response) {
+                    $state.go('admin', {id: response.data._id});
                     return response;
                 });
         };
@@ -272,7 +322,7 @@ angular.module("app")
         this.getUser = function() {
             return $http({
                     method: 'GET',
-                    url: 'api/me'
+                    url: '/api/me'
                 })
                 .then(function(response) {
                     console.log(response);
@@ -287,6 +337,7 @@ angular.module("app")
                 })
                 .then(function(response) {
                     console.log(response);
+                    $state.go('login')
                     return response;
                 });
         };
@@ -431,6 +482,23 @@ angular.module("app")
 
 angular.module("app")
     .controller("homeCtrl", ["$scope", function($scope) {
+
+}]);
+
+angular.module("app")
+    .controller("loginCtrl", ["$scope", "adminSvc", function($scope, adminSvc) {
+
+        $scope.adminLogin = function() {
+            adminSvc.adminLogin($scope.credentials)
+                .then(function(response) {
+                    if (response) {
+                        $scope.adminUser = false;
+                        $scope.adminLoginBoxes = true;
+                    } else {
+                        alert('Insufficient Admin Credentials');
+                    }
+                });
+        };
 
 }]);
 
