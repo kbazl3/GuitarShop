@@ -16,21 +16,21 @@
 <div class="container marketing">
     <div class="row">
         <div class="col-lg-4">
-            <img class="img-circle" src="http://uncletim.com/images/classic-4.jpg" alt="Generic placeholder image" style="width: 240px; height: 240px;">
+            <img class="img-circle" src="http://uncletim.com/images/classic-4.jpg" alt="a person cutting guitar strings with wire cutters" style="width: 240px; height: 240px;">
             <h2>Heading</h2>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
 
         <div class="col-lg-4">
-            <img class="img-circle" src="http://cdo.seymourduncan.com/blog/wp-content/uploads/SG-repair.jpg" alt="Generic placeholder image" style="width: 240px; height: 240px;">
+            <img class="img-circle" src="http://cdo.seymourduncan.com/blog/wp-content/uploads/SG-repair.jpg" alt="a guitar propped up at a workstation" style="width: 240px; height: 240px;">
             <h2>Heading</h2>
             <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
 
         <div class="col-lg-4">
-            <img class="img-circle" src="http://www.guitarsetup.co.uk/wp-content/uploads/les-paul-controls.jpg" alt="Generic placeholder image" style="width: 240px; height: 240px;">
+            <img class="img-circle" src="http://www.guitarsetup.co.uk/wp-content/uploads/les-paul-controls.jpg" alt="soldering guitar wires" style="width: 240px; height: 240px;">
             <h2>Electronic Work</h2>
             <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
             <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
@@ -50,18 +50,24 @@
             <form action="https://getsimpleform.com/messages?form_api_token=dfddebfe4d270b17e5c9728e6fa77e6a" method="post" enctype="multipart/form-data">
 
                 <br><label>Name</label>
-                <input type="text" name="name" class="form-control" placeholder="Name">
+                <input type="text" name="setupName" class="form-control" placeholder="Name">
 
                 <label>Email address</label>
                 <br>
                 <small class="text-muted">We'll never share your email with anyone else.</small>
-                <input type="email" class="form-control" name="_replyto" placeholder="Enter email">
+                <input type="email" class="form-control" name="setupEmail" placeholder="Enter email">
 
                 <label>Phone Number</label>
-                <input type="text" name="phone" class="form-control" placeholder="Name">
+                <input type="text" name="setupPhone" class="form-control" placeholder="Name">
 
                 <label>Tell us about your project and what you would like done to record</label>
-                <textarea class="form-control" name="details" rows="4"></textarea><br>
+                <textarea class="form-control" name="setupDetails" rows="4"></textarea><br>
+
+                <label>Does your guitar have a floyd rose/whammy bar?</label>
+                <select name="floyd">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select><br><br>
 
                 <label>Send us and image of the needed repair area</label>
                 <input type="file" name="image" class="form-control-file">

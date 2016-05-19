@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img class="slide-image" src="./images/Guitar-Wall800x300.png" alt="">
+                        <img class="slide-image" src="./images/Guitar-Wall800x300.png" alt="Guitar Wall">
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
         <div class="col-sm-3 col-lg-3 col-md-3" ng-repeat="product in products | filter:sortBy.category | filter: orderBy.price">
             <div class="thumbnail">
                 <div data-toggle="modal" data-target="#{{product._id}}">
-                    <a href="" class="prodImg"><img ng-src={{product.image}} alt=""></a>
+                    <a href="" class="prodImg"><img ng-src={{product.image}} alt="Product Image"></a>
                 </div>
                 <div class="caption">
                     <h4 class="pull-right">${{product.price}}</h4>
@@ -46,7 +46,7 @@
                             <h4 class="modal-title" id="myModalLabel">{{product.make}}</h4>
                         </div>
                         <div class="modal-body">
-                            <img src={{product.image}} alt="" />
+                            <img src={{product.image}} alt="Product Image in Modal" />
                             <p>{{product.summary}}<p>
                         </div>
                     </div>
