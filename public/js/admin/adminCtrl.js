@@ -1,5 +1,5 @@
 angular.module("app")
-    .controller("adminCtrl", function($scope, adminSvc, $state, sessions) {
+    .controller("adminCtrl", function($scope, adminSvc, $state, sessions, toaster) {
 
         $scope.adminUser = true;
         $scope.manageProducts = true;
@@ -26,6 +26,7 @@ angular.module("app")
         $scope.addProduct = function(product) {
             adminSvc.addNewProduct(product);
             callGetProducts();
+            toaster.pop('success', "Success", "Successfully Added New Product");
             $scope.product = " ";
         };
 
@@ -77,6 +78,7 @@ angular.module("app")
         $scope.addAdmin = function(admin) {
             adminSvc.addAdmin(admin);
             callGetAdmins();
+            toaster.pop('info', "Success", "Successfully Added New Admin");
             $scope.admin = " ";
         };
 
@@ -103,6 +105,7 @@ angular.module("app")
         $scope.newLesson = function(lesson) {
             adminSvc.addLesson(lesson);
             callGetLessons();
+            toaster.pop('success', "Success", "Successfully Added New Lesson");
             $scope.lesson = " ";
         };
 
@@ -147,6 +150,7 @@ angular.module("app")
         $scope.newStudioSession = function(session) {
             adminSvc.addStudioSession(session);
             callGetStudioSessions();
+            toaster.pop('success', "Success", "Successfully Added New Studio Session");
             $scope.studioSession = " ";
         };
 
