@@ -1,35 +1,57 @@
 <header-dir></header-dir>
-<br><br><br>
-<h2>Admin Page</h2>
+<br>
+<br>
+<br>
+<h2 class="text-center">Admin Page</h2>
 <button type="button" ng-click="logout()" name="button">Logout</button>
 
 
 
 <div class="adminContainer">
-    <button type="button" ng-click="toggleManageProducts()">Manage Products</button>
-    <button type="button" ng-click="toggleManageAdmins()">Manage Admin Users</button>
-    <button type="button" ng-click="toggleLessonsAppointment()">Manage Guitar Lessons</button>
-    <button type="button" ng-click="toggleManageStudio()">Manage Studio Sessions</button>
-    <div ng-hide="manageProducts">
-        <div>
-            <p>Add new Product</p>
-            <input placeholder="make" ng-model="product.make">
-            <input placeholder="price of new Product" ng-model="product.price">
-            <input placeholder="url img of new Product" ng-model="product.image">
-            <input placeholder="model" ng-model="product.model">
-            <textarea placeholder="long description of Product" ng-model="product.summary"></textarea>
-            <input placeholder="condition of Product" ng-model="product.condition">
-            <input placeholder="Category of Product" ng-model="product.category">
-            <button ng-click="addProduct(product)">Add New</button>
-            <br>
-            <p>Update Product</p>
-            <input placeholder="id of Product" ng-model="prodId">
-            <button ng-click="updateProduct(prodId, product)">Update</button>
-        </div>
+    <button class="btn btn-default" class="form-control" type="button" ng-click="toggleManageProducts()">Manage Products</button>
+    <button class="btn btn-default" class="form-control" type="button" ng-click="toggleManageAdmins()">Manage Admin Users</button>
+    <button class="btn btn-default" class="form-control" type="button" ng-click="toggleLessonsAppointment()">Manage Guitar Lessons</button>
+    <button class="btn btn-default" class="form-control" type="button" ng-click="toggleManageStudio()">Manage Studio Sessions</button>
 
-        <button ng-click="deleteProduct(prodId)">Delete</button>
-        <div>
-            <h4>products</h4>
+
+    <div class="container" ng-hide="manageProducts">
+        <form class="well span7">
+            <legend class="text-center"> Manage Products</legend>
+            <label>Product Make </label>
+            <input class="input-sm" ng-model="product.make">
+            <label>Product Price </label>
+            <input class="input-sm" ng-model="product.price">
+            <label>Product Image Path</label>
+            <input class="input-sm" ng-model="product.image">
+            <label>Product Model </label>
+            <input class="input-sm" ng-model="product.model">
+            <label>Product Details </label>
+            <br>
+            <textarea class="form-control" ng-model="product.summary"></textarea>
+            <label>Product Condition </label>
+            <select class="form-control" ng-model="product.condition">
+                <option value="Mint">Mint</option>
+                <option value="Good">Good</option>
+                <option value="Used">Used</option>
+            </select>
+            <label>Product Category</label>
+            <br>
+            <select class="form-control" ng-model="product.category">
+                <option value="GuitarType">Guitar</option>
+                <option value="BassType">Bass</option>
+                <option value="AmpType">Amp</option>
+            </select>
+            <br>
+            <br>
+            <br>
+            <label>Update Product By ID</label>
+            <input class="input-sm" ng-model="prodId">
+            <button class="btn btn-success" ng-click="addProduct(product)">Add New Product</button>
+            <button class="btn btn-warning" ng-click="updateProduct(prodId, product)">Update</button>
+        </form>
+
+        <div class="adminsList">
+            <h4>Products</h4>
             <ul class="products" ng-repeat="product in products">
                 <li>{{product.make}}</li>
                 <li>${{product.price}}</li>
@@ -40,33 +62,40 @@
                 <li>{{product.category}}</li>
                 <li>{{product.buyInDate}}</li>
                 <li>{{product._id}}</li>
+                <button class="btn btn-danger" ng-click="deleteProduct(product._id, product.model)">Delete</button>
             </ul>
         </div>
     </div>
 
     <div class="container" ng-hide="manageAdmins">
         <form class="well span7">
-            <legend class="text-center"> Mangage Admin Users</legend>
-            <input placeholder="Last Name" ng-model="admin.username">
-            <input placeholder="Email" ng-model="admin.email">
-            <input type="password" placeholder="Password" ng-model="admin.password" required minlength="6">
+            <legend class="text-center"> Manage Admin Users</legend>
+            <label>Last Name</label>
+            <input class="input-sm" ng-model="admin.username">
+            <label>Email</label>
+            <input class="input-sm" ng-model="admin.email">
+            <label>Password</label>
+            <input class="input-sm" type="password" ng-model="admin.password" required minlength="6">
             <div ng-messages="myForm.myField.$error">
                 <div ng-message="required">You did not enter a field</div>
                 <div ng-message="minlength">The value entered is too short</div>
             </div>
             <br>
-            <input placeholder="Admin id" ng-model="adminID">
-            <button type="button" ng-click="addAdmin(admin)">Add Admin</button>
-            <button type="button" ng-click="updateAdmin(adminID, admin)">Update Admin</button>
-            <button type="button" ng-click="deleteAdmin(adminID)">Delete Admin</button>
+            <label>Update Admin By ID</label>
+            <input class="input-sm" ng-model="adminID">
+            <button class="btn btn-success" type="button" ng-click="addAdmin(admin)">Add Admin</button>
+            <button class="btn btn-warning" type="button" ng-click="updateAdmin(adminID, admin)">Update Admin</button>
         </form>
 
-        <h4>Admins</h4>
-        <ul class="adminsList" ng-repeat="admin in admins">
-            <li>{{admin.username}}</li>
-            <li>{{admin.email}}</li>
-            <li>{{admin._id}}</li>
-        </ul>
+        <div class="adminsList">
+            <h4>Admins</h4>
+            <ul class="adminsList" ng-repeat="admin in admins">
+                <li><b>Username</b>: {{admin.username}}</li>
+                <li><b>Email</b>: {{admin.email}}</li>
+                <li><b>ID</b>: {{admin._id}}</li>
+                <button class="btn btn-danger" type="button" ng-click="deleteAdmin(admin._id, admin.username)">Delete Admin</button>
+            </ul>
+        </div>
     </div>
 
 
@@ -75,24 +104,24 @@
     <div class="container" ng-hide="lessonsAppointment">
         <form class="well span7">
             <legend class="text-center"> Manage Guitar Lessons</legend>
-            <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="newLesson(lesson)">Add New Lesson</button>
             <div class="row">
                 <div class="span2">
                     <label>First Name</label>
-                    <input type="text" class="span2" ng-model="lesson.firstName">
+                    <input type="text" class="input-sm" ng-model="lesson.firstName">
                     <label>Last Name</label>
-                    <input type="text" class="span2" ng-model="lesson.lastName">
+                    <input type="text" class="input-sm" ng-model="lesson.lastName">
                     <label>Phone</label>
-                    <input type="text" class="span2" ng-model="lesson.phone">
+                    <input type="text" class="input-sm" ng-model="lesson.phone">
                     <label>Email</label>
-                    <input type="text" class="span2" ng-model="lesson.email">
+                    <input type="text" class="input-sm" ng-model="lesson.email">
                     <label>Instructor</label>
-                    <input type="text" class="span2" ng-model="lesson.instructor">
+                    <input type="text" class="input-sm" ng-model="lesson.Instructor">
                 </div>
-                <div class="span5">
+                <div>
                     <label>Date and Time</label>
                     <div class="btn-toolbar" style="margin: 0;">
                         <div class="btn-group">
+                            <label>Month</label>
                             <select ng-model="lesson.date.month">
                                 <option value="Month">- Month -</option>
                                 <option value="January">January</option>
@@ -108,6 +137,7 @@
                                 <option value="November">November</option>
                                 <option value="December">December</option>
                             </select>
+                            <label>Day</label>
                             <select ng-model="lesson.date.day">
                                 <option value="Day">- Day -</option>
                                 <option value="01">1</option>
@@ -142,6 +172,7 @@
                                 <option value="03">30</option>
                                 <option value="03">31</option>
                             </select>
+                            <label>Time</label>
                             <select ng-model="lesson.date.time">
                                 <option value="Time">Time am/pm</option>
                                 <option value="10am">10:00am</option>
@@ -165,23 +196,23 @@
                     <textarea id="message" class="span4" rows="10" style="width: 96%" ng-model="lesson.details"></textarea>
                 </div>
                 <label>Lesson ID</label>
-                <input type="text" class="span2" ng-model="lessonID">
-                <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="updateLesson(lessonID, lesson)">Update Lesson</button>
-                <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="deleteLesson(lessonID)">Delete Lesson</button>
+                <input type="text" class="input-sm" ng-model="lessonID">
+                <button type="submit" class="btn btn-success" ng-click="newLesson(lesson)">Add New Lesson</button>
+                <button type="submit" class="btn btn-warning" ng-click="updateLesson(lessonID, lesson)">Update Lesson</button>
             </div>
         </form>
-        <div>
+        <div class="adminsList">
             <h4>Lessons</h4>
             <ul ng-repeat="lesson in lessons">
-                <li>{{lesson.firstName}}</li>
-                <li>{{lesson.lastName}}</li>
-                <li>{{lesson.phone}}</li>
-                <li>{{lesson.email}}</li>
-                <li>{{lesson.instructor}}</li>
-                <li>{{lesson.date.month}}</li>
-                <li>{{lesson.detail}}</li>
-                <li>{{lesson.dateCreated}}</li>
-                <li>{{lesson._id}}</li>
+                <li><b>Student:</b> {{lesson.firstName}} {{lesson.lastName}}</li>
+                <li><b>Phone:</b> {{lesson.phone}}</li>
+                <li><b>Email:</b> {{lesson.email}}</li>
+                <li><b>Instructor </b>{{lesson.Instructor}}</li>
+                <li><b>Lesson Date:</b> {{lesson.date.month}} {{lesson.date.day}} {{lesson.date.time}}</li>
+                <li><b>Lesson Details:</b> {{lesson.detail}}</li>
+                <li><b>Date Booked:</b> {{lesson.dateCreated}}</li>
+                <li><b>ID:</b> {{lesson._id}}</li>
+                <button type="submit" class="btn btn-danger" style="margin-left: 32%;" contenteditable="false" ng-click="deleteLesson(lesson._id, lesson.email)">Delete Lesson</button>
             </ul>
         </div>
     </div>
@@ -198,19 +229,18 @@
     <div class="container" ng-hide="recordingSessionAppointment">
         <form class="well span7">
             <legend class="text-center">Manage Studio Sessions</legend>
-            <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="newStudioSession(studioSession)">Add New Studio Session</button>
             <div class="row">
                 <div class="span2">
                     <label>First Name</label>
-                    <input type="text" class="span2" ng-model="studioSession.firstName">
+                    <input type="text" class="input-sm" ng-model="studioSession.firstName">
                     <label>Last Name</label>
-                    <input type="text" class="span2" ng-model="studioSession.lastName">
+                    <input type="text" class="input-sm" ng-model="studioSession.lastName">
                     <label>Phone</label>
-                    <input type="text" class="span2" ng-model="studioSession.phone">
+                    <input type="text" class="input-sm" ng-model="studioSession.phone">
                     <label>Email</label>
-                    <input type="text" class="span2" ng-model="studioSession.email">
+                    <input type="text" class="input-sm" ng-model="studioSession.email">
                     <label>Sound Engineer</label>
-                    <input type="text" class="span2" ng-model="studioSession.instructor">
+                    <input type="text" class="input-sm" ng-model="studioSession.instructor">
                 </div>
                 <div class="span5">
                     <label>Date and Time</label>
@@ -288,29 +318,33 @@
                     <textarea id="message" class="span3" rows="10" style="width: 96%" ng-model="studioSession.details"></textarea>
                 </div>
                 <label>Studio Session ID</label>
-                <input type="text" class="span2" ng-model="studioSessionID">
-                <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="updateStudioSession(studioSessionID, studioSession)">Update Studio Session</button>
-                <button type="submit" class="btn btn-warning" style="margin-left: 32%;" contenteditable="false" ng-click="deleteStudioSession(studioSessionID)">Delete Studio Session</button>
+                <input type="text" class="input-sm" ng-model="studioSessionID">
+                <button type="submit" class="btn btn-success" ng-click="newStudioSession(studioSession)">Add New Studio Session</button>
+                <button type="submit" class="btn btn-warning" ng-click="updateStudioSession(studioSessionID, studioSession)">Update Studio Session</button>
             </div>
         </form>
-        <div>
+        <div class="adminsList">
             <h4>Studio Sessions</h4>
             <ul ng-repeat="session in sessions">
-                <li>{{session.firstName}}</li>
-                <li>{{session.lastName}}</li>
-                <li>{{session.phone}}</li>
-                <li>{{session.email}}</li>
-                <li>{{session.Instructor}}</li>
-                <li>{{session.date.month}} {{session.date.day}} {{session.date.time}}</li>
-                <li>{{session.detail}}</li>
-                <li>{{session.dateCreated}}</li>
-                <li>{{session._id}}</li>
+                <li><b>Artist</b>: {{session.firstName}} {{session.lastName}}</li>
+                <li><b>Phone</b>: {{session.phone}}</li>
+                <li><b>Email</b>: {{session.email}}</li>
+                <li><b>Sound Engineer</b>: {{session.Instructor}}</li>
+                <li><b>Session Date</b>: {{session.date.month}} {{session.date.day}} {{session.date.time}}</li>
+                <li><b>Details</b>: {{session.detail}}</li>
+                <li><b>Date Created</b>: {{session.dateCreated}}</li>
+                <li><b>ID</b>: {{session._id}}</li>
+                <button type="submit" class="btn btn-danger"ng-click="deleteStudioSession(studioSession._id)">Delete Studio Session</button>
             </ul>
         </div>
     </div>
-    <br><br>
-    <h2 class="text-center">Lessons and Studio Sessions Schedule</h2>
-    <div class="col-lg-12 calendar" ui-calendar='calOptions' ng-model="eventSources">
+    <br>
+    <br>
+    <h2 class="text-center">Studio Sessions Schedule</h2>
+    <div class="calWrapper">
+        <div class="col-lg-10 calendar" ui-calendar='calOptions' ng-model="eventSources">
 
+        </div>
     </div>
+
 </div>

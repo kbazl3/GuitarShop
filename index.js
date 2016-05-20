@@ -45,9 +45,7 @@ var isAuthed = function(req, res, next) {
 app.post('/api/adminLogin', passport.authenticate('local', {
     successRedirect: '/me'
 }));
-
 app.get('/me', isAuthed, adminCtrl.me);
-
 app.get('/api/logout', function(req, res, next) {
     req.logout();
     return res.status(200).send('logged out');

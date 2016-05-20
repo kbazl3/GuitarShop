@@ -1,61 +1,60 @@
 <div class="productsPageWrapper">
-
-
-<header-dir></header-dir>
-
-<div class= productContainer>
-    <div class="row">
-        <div class="col-md-12">
+    <header-dir></header-dir>
+    <div class="productContainer">
+        <div class="row">
             <div class="col-md-12">
-                <img class="prodBannerImage" src="./images/Guitar-Wall800x300.png" alt="Guitar Wall">
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div>Filter By Types of Products</div>
-            <select class="form-control" name="orderByKey" ng-model="sortBy.category">
-                <option value="AmpType">Amp</option>
-                <option value="GuitarType">Guitar</option>
-                <option value="BassType">Bass</option>
-                <option value="a">All</option>
-            </select>
-        </div>
-    </div>
-    <div class="container">
-    <div class="row">
-        <div class="col-sm-3 col-lg-3 col-md-3 prodCard" ng-repeat="product in products | filter:sortBy.category | filter: orderBy.price">
-            <div class="thumbnail">
-                <div class="prodImageContainer" data-toggle="modal" data-target="#{{product._id}}">
-                    <a href=""><img class="image-responsive" ng-src={{product.image}} alt="Product Image"></a>
-                </div>
-                <div class="caption">
-                    <h4 class="pull-right"><span class="dollar">$</span> {{product.price}}</h4>
-                    <h3>{{product.make}}</h3>
-                    <p>{{product.model}}</p>
+                <div class="col-md-12">
+                    <img class="prodBannerImage" src="./images/Guitar-Wall800x300.png" alt="Guitar Wall">
                 </div>
             </div>
-            <!-- MODAL -->
-            <div class="modal fade" id={{product._id}}>
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header text-center">
-                            <h3 class="modal-title" id="myModalLabel">{{product.make}}</h3>
-                            <h4>{{product.model}}</h4>
+        </div>
+        <div class="container">
+            <div class="filter col-lg-12">
+                <label>Filter Products By Type</label>
+                <select class="form-control" name="orderByKey" ng-model="sortBy.category">
+                    <option value="AmpType">Amp</option>
+                    <option value="GuitarType">Guitar</option>
+                    <option value="BassType">Bass</option>
+                    <option value="a">All</option>
+                </select>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 col-lg-3 col-md-3 prodCard" ng-repeat="product in products | filter:sortBy.category | filter: orderBy.price">
+                    <div class="thumbnail">
+                        <div class="prodImageContainer" data-toggle="modal" data-target="#{{product._id}}">
+                            <a href=""><img class="image-responsive" ng-src={{product.image}} alt="Product Image"></a>
                         </div>
-                        <div class="modal-body">
-                            <img class="image-responsive" src={{product.image}} alt="Product Image in Modal" />
+                        <div class="caption">
+                            <h4 class="pull-right"><span class="dollar">$</span> {{product.price}}</h4>
+                            <h3>{{product.make}}</h3>
+                            <p>{{product.model}}</p>
                         </div>
-                        <div class="modal-footer">
-                            <p>Condition:  {{product.condition}}</p>
-                            <p>Details: {{product.summary}}<p>
-                            <hr>
-                            <p>Price:  <span class="dollar">$</span>{{product.price}}</p>
-
+                    </div>
+                    <!-- MODAL -->
+                    <div class="modal fade" id={{product._id}}>
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header text-center">
+                                    <h3 class="modal-title" id="myModalLabel">{{product.make}}</h3>
+                                    <h4>{{product.model}}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <img class="image-responsive" src={{product.image}} alt="Product Image in Modal" />
+                                </div>
+                                <div class="modal-footer">
+                                    <p><b>Condition</b>: {{product.condition}}</p>
+                                    <hr>
+                                    <p><b>Details</b>:<br> {{product.summary}}<p>
+                                        <hr>
+                                        <p><b>Price</b>: <span class="dollar">$</span>{{product.price}}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <footer-dir></footer-dir>
     </div>
-</div>
-<footer-dir></footer-dir>
-</div>

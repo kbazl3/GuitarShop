@@ -1,4 +1,4 @@
-angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar'])
+angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate'])
     .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/');
@@ -63,7 +63,6 @@ angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar'])
 
 angular.module("app")
     .controller("adminCtrl", ["$scope", "adminSvc", "$state", "sessions", function($scope, adminSvc, $state, sessions) {
-        console.log("sessions", sessions);
 
         $scope.adminUser = true;
         $scope.manageProducts = true;
@@ -90,11 +89,14 @@ angular.module("app")
         $scope.addProduct = function(product) {
             adminSvc.addNewProduct(product);
             callGetProducts();
+            $scope.product = " ";
         };
 
-        $scope.deleteProduct = function(id) {
-            adminSvc.destroyProduct(id);
-            callGetProducts();
+        $scope.deleteProduct = function(id, product) {
+            if (confirm("Are you sure you want to delete the " + product + "?")) {
+                adminSvc.destroyProduct(id);
+                callGetProducts();
+            }
         };
 
         $scope.updateProduct = function(id, name, price, img, model, summary, condition, type) {
@@ -138,6 +140,7 @@ angular.module("app")
         $scope.addAdmin = function(admin) {
             adminSvc.addAdmin(admin);
             callGetAdmins();
+            $scope.admin = " ";
         };
 
         $scope.updateAdmin = function(id, admin) {
@@ -145,9 +148,11 @@ angular.module("app")
             callGetAdmins();
         };
 
-        $scope.deleteAdmin = function(id) {
-            adminSvc.deleteAdmin(id);
-            callGetAdmins();
+        $scope.deleteAdmin = function(id, name) {
+            if (confirm("Are you sure you want to remove " + name + " from the admin list?")) {
+                adminSvc.deleteAdmin(id);
+                callGetAdmins();
+            }
         };
 
         var callGetLessons = function() {
@@ -161,11 +166,14 @@ angular.module("app")
         $scope.newLesson = function(lesson) {
             adminSvc.addLesson(lesson);
             callGetLessons();
+            $scope.lesson = " ";
         };
 
-        $scope.deleteLesson = function(lessonID) {
-            adminSvc.deleteLesson(lessonID);
-            callGetLessons();
+        $scope.deleteLesson = function(lessonID, student) {
+            if (confirm("Are you sure you want to delete lesson for " + student + "?")) {
+                adminSvc.deleteLesson(lessonID);
+                callGetLessons();
+            }
         };
 
         $scope.updateLesson = function(id, lesson) {
@@ -174,26 +182,6 @@ angular.module("app")
         };
 
         // *************************** calendar ****************
-
-        var obj = {
-            year: 2016,
-            month: 4,
-            day: 3
-        };
-
-        // var events = [{
-        //     title: "Mom's Birthday",
-        //     start: new Date(obj.year, obj.month, obj.day)
-        // }, {
-        //     title: "Party Time",
-        //     start: new Date(2016, 4, 12),
-        //     end: new Date(2016, 4, 16)
-        // }, {
-        //     title: "Mom's Birthday",
-        //     start: new Date(obj.year, obj.month, obj.day)
-        // }];
-        // console.log("events", events);
-
         events = [];
         $scope.eventSources = [events];
         var callGetStudioSessions = function() {
@@ -209,10 +197,6 @@ angular.module("app")
                 });
 
         };
-
-
-
-        // $scope.eventSources = [events];
         $scope.calOptions = {
             editable: true,
             header: {
@@ -230,19 +214,16 @@ angular.module("app")
         };
 
         $scope.deleteStudioSession = function(id) {
-            adminSvc.deleteStudioSession(id);
-            callGetStudioSessions();
+            if (confirm("Are you sure you want to delete this Studio Session?")) {
+                adminSvc.deleteStudioSession(id);
+                callGetStudioSessions();
+            }
         };
 
         $scope.updateStudioSession = function(id, session) {
             adminSvc.updateStudioSession(id, session);
             callGetStudioSessions();
         };
-
-
-
-
-
     }]);
 
 angular.module("app")
