@@ -16,26 +16,14 @@ angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 't
             controller: "adminCtrl",
             resolve: {
                 sessions: function(adminSvc) {
-                    adminSvc.getStudioSessions()
-                        .then(function(sessions) {
-                            var events = [];
-                            console.log(sessions);
-                            sessions.forEach(function(item) {
-                                events.push({
-                                    title: item.lastName + ": " + item.details,
-                                    start: new Date()
-                                });
-                            });
-                            return events;
-                        });
+                    adminSvc.getStudioSessions();
                 }
             }
         })
 
         .state("home", {
             url: '/',
-            templateUrl: "./js/home/home.html",
-            controller: "homeCtrl"
+            templateUrl: "./js/home/home.html"
         })
 
         .state("login", {

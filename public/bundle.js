@@ -16,26 +16,14 @@ angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 't
             controller: "adminCtrl",
             resolve: {
                 sessions: ["adminSvc", function(adminSvc) {
-                    adminSvc.getStudioSessions()
-                        .then(function(sessions) {
-                            var events = [];
-                            console.log(sessions);
-                            sessions.forEach(function(item) {
-                                events.push({
-                                    title: item.lastName + ": " + item.details,
-                                    start: new Date()
-                                });
-                            });
-                            return events;
-                        });
+                    adminSvc.getStudioSessions();
                 }]
             }
         })
 
         .state("home", {
             url: '/',
-            templateUrl: "./js/home/home.html",
-            controller: "homeCtrl"
+            templateUrl: "./js/home/home.html"
         })
 
         .state("login", {
@@ -62,7 +50,7 @@ angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 't
     }]);
 
 angular.module("app")
-    .controller("adminCtrl", ["$scope", "adminSvc", "$state", "sessions", "toaster", function($scope, adminSvc, $state, sessions, toaster) {
+    .controller("adminCtrl", ["$scope", "adminSvc", "toaster", function($scope, adminSvc, toaster) {
 
         $scope.adminUser = true;
         $scope.manageProducts = true;
@@ -73,38 +61,34 @@ angular.module("app")
         $scope.toggleManageProducts = function() {
             $scope.manageProducts = !$scope.manageProducts;
         };
-
         $scope.toggleManageStudio = function() {
             $scope.recordingSessionAppointment = !$scope.recordingSessionAppointment;
         };
-
         $scope.toggleManageAdmins = function() {
             $scope.manageAdmins = !$scope.manageAdmins;
         };
-
         $scope.toggleLessonsAppointment = function() {
             $scope.lessonsAppointment = !$scope.lessonsAppointment;
         };
-
+        // ****** PRODUCTS CRUD *******
         $scope.addProduct = function(product) {
             adminSvc.addNewProduct(product);
             callGetProducts();
-            toaster.pop('success', "Success", "Successfully Added New Product");
-            $scope.product = " ";
+            toaster.pop('success', "Successfully Added New Product");
+            $scope.product = "";
         };
-
         $scope.deleteProduct = function(id, product) {
             if (confirm("Are you sure you want to delete the " + product + "?")) {
                 adminSvc.destroyProduct(id);
+                toaster.pop('success', "Successfully Deleted Product");
                 callGetProducts();
             }
         };
-
-        $scope.updateProduct = function(id, name, price, img, model, summary, condition, type) {
-            adminSvc.updateProduct(id, name, price, img, model, summary, condition, type);
+        $scope.updateProduct = function(id, product) {
+            adminSvc.updateProduct(id, product);
+            toaster.pop('success',"Successfully Updated Product");
             callGetProducts();
         };
-
         var callGetProducts = function() {
             adminSvc.getProducts()
                 .then(function(products) {
@@ -113,19 +97,10 @@ angular.module("app")
         };
         callGetProducts();
 
-
-        // $scope.adminLogin = function() {
-        //     adminSvc.adminLogin($scope.credentials)
-        //         .then(function(response) {
-        //             if (response) {
-        //                 $scope.adminUser = false;
-        //                 $scope.adminLoginBoxes = true;
-        //             } else {
-        //                 alert('Insufficient Admin Credentials');
-        //             }
-        //         });
-        // };
-
+        // ****** ADMINS CRUD *******
+        $scope.logout = function() {
+            adminSvc.logout();
+        };
         var callGetAdmins = function() {
             adminSvc.getAdmins()
                 .then(function(admins) {
@@ -133,30 +108,26 @@ angular.module("app")
                 });
         };
         callGetAdmins();
-
-        $scope.logout = function() {
-            adminSvc.logout();
-        };
-
         $scope.addAdmin = function(admin) {
             adminSvc.addAdmin(admin);
             callGetAdmins();
-            toaster.pop('info', "Success", "Successfully Added New Admin");
-            $scope.admin = " ";
+            toaster.pop('success', "Successfully Added New Admin", "");
+            $scope.admin = "";
         };
-
         $scope.updateAdmin = function(id, admin) {
             adminSvc.updateAdmin(id, admin);
+            toaster.pop('success', "Successfully Updated Admin");
             callGetAdmins();
         };
-
         $scope.deleteAdmin = function(id, name) {
             if (confirm("Are you sure you want to remove " + name + " from the admin list?")) {
                 adminSvc.deleteAdmin(id);
+                toaster.pop('success', "Successfully Deleted " + name + " From Admin Database");
                 callGetAdmins();
             }
         };
 
+        // ****** LESSONS CRUD *******
         var callGetLessons = function() {
             adminSvc.getLessons()
                 .then(function(lessons) {
@@ -164,23 +135,22 @@ angular.module("app")
                 });
         };
         callGetLessons();
-
         $scope.newLesson = function(lesson) {
             adminSvc.addLesson(lesson);
             callGetLessons();
             toaster.pop('success', "Success", "Successfully Added New Lesson");
-            $scope.lesson = " ";
+            $scope.lesson = "";
         };
-
         $scope.deleteLesson = function(lessonID, student) {
             if (confirm("Are you sure you want to delete lesson for " + student + "?")) {
                 adminSvc.deleteLesson(lessonID);
+                toaster.pop('success', "Successfully Deleted Lesson");
                 callGetLessons();
             }
         };
-
         $scope.updateLesson = function(id, lesson) {
             adminSvc.updateLesson(id, lesson);
+            toaster.pop('success', "Successfully Updated Lesson");
             callGetLessons();
         };
 
@@ -198,7 +168,6 @@ angular.module("app")
                     });
                     $scope.sessions = sessions;
                 });
-
         };
         $scope.calOptions = {
             editable: true,
@@ -208,24 +177,26 @@ angular.module("app")
                 right: 'next'
             }
         };
-        callGetStudioSessions();
 
+        // ****** STUDIO SESSIONS CRUD *******
+        callGetStudioSessions();
         $scope.newStudioSession = function(session) {
             adminSvc.addStudioSession(session);
             callGetStudioSessions();
             toaster.pop('success', "Success", "Successfully Added New Studio Session");
-            $scope.studioSession = " ";
+            $scope.studioSession = "";
         };
-
         $scope.deleteStudioSession = function(id) {
+            console.log(id);
             if (confirm("Are you sure you want to delete this Studio Session?")) {
                 adminSvc.deleteStudioSession(id);
+                toaster.pop('success', "Successfully Deleted Studio Session");
                 callGetStudioSessions();
             }
         };
-
         $scope.updateStudioSession = function(id, session) {
             adminSvc.updateStudioSession(id, session);
+            toaster.pop('success', "Successfully Updated Studio Session");
             callGetStudioSessions();
         };
     }]);
@@ -263,13 +234,11 @@ angular.module("app")
         };
 
         this.destroyProduct = function(id) {
-            console.log(id);
             return $http({
                     method: "DELETE",
                     url: "/api/products/" + id
                 })
                 .then(function(response) {
-                    console.log(response);
                 });
         };
 
@@ -310,7 +279,6 @@ angular.module("app")
                     url: '/api/me'
                 })
                 .then(function(response) {
-                    console.log(response);
                     return response;
                 });
         };
@@ -321,7 +289,6 @@ angular.module("app")
                     url: '/api/logout'
                 })
                 .then(function(response) {
-                    console.log(response);
                     $state.go('login')
                     return response;
                 });
@@ -355,7 +322,6 @@ angular.module("app")
                     data: admin
                 })
                 .then(function(response) {
-                    console.log(response);
                 });
         };
 
@@ -365,7 +331,6 @@ angular.module("app")
                     url: "/api/admin/" + id
                 })
                 .then(function(response) {
-                    console.log(response);
                 });
         };
 
@@ -403,7 +368,6 @@ angular.module("app")
                     url: "/api/lessons/" + id
                 })
                 .then(function(response) {
-                    console.log(response);
                 });
         };
 
@@ -450,7 +414,6 @@ angular.module("app")
                     url: "/api/studioSessions/" + id
                 })
                 .then(function(response) {
-                    console.log(response);
                 });
         };
 
@@ -464,11 +427,6 @@ angular.module("app")
         };
 
     }]);
-
-angular.module("app")
-    .controller("homeCtrl", ["$scope", function($scope) {
-
-}]);
 
 angular.module("app")
     .controller("loginCtrl", ["$scope", "adminSvc", function($scope, adminSvc) {
@@ -494,21 +452,6 @@ angular.module("app")
             .then(function(products) {
                 $scope.products = products;
             });
-    }]);
-
-angular.module("app")
-    .service("mainSvc", ["$http", function($http) {
-
-        this.getProducts = function() {
-            $http({
-                method: "GET",
-                url: "/api/products"
-                })
-                .then(function(response) {
-                    console.log(response);
-                    return response;
-                });
-        };
     }]);
 
 angular.module("app")

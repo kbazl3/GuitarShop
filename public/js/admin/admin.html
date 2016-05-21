@@ -4,14 +4,11 @@
 <br>
 <h2 class="text-center">Admin Page</h2>
 
-
-
 <div class="adminContainer">
     <button class="btn btn-default" class="form-control" type="button" ng-click="toggleManageProducts()">Manage Products</button>
     <button class="btn btn-default" class="form-control" type="button" ng-click="toggleManageAdmins()">Manage Admin Users</button>
     <button class="btn btn-default" class="form-control" type="button" ng-click="toggleLessonsAppointment()">Manage Guitar Lessons</button>
     <button class="btn btn-default" class="form-control" type="button" ng-click="toggleManageStudio()">Manage Studio Sessions</button>
-
 
     <div class="container" ng-hide="manageProducts">
         <form class="well span7">
@@ -96,9 +93,6 @@
             </ul>
         </div>
     </div>
-
-
-
 
     <div class="container" ng-hide="lessonsAppointment">
         <form class="well span7">
@@ -216,15 +210,6 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
     <div class="container" ng-hide="recordingSessionAppointment">
         <form class="well span7">
             <legend class="text-center">Manage Studio Sessions</legend>
@@ -333,7 +318,7 @@
                 <li><b>Details</b>: {{session.detail}}</li>
                 <li><b>Date Created</b>: {{session.dateCreated}}</li>
                 <li><b>ID</b>: {{session._id}}</li>
-                <button type="submit" class="btn btn-danger"ng-click="deleteStudioSession(studioSession._id)">Delete Studio Session</button>
+                <button type="submit" class="btn btn-danger" ng-click="deleteStudioSession(session._id)">Delete Studio Session</button>
             </ul>
         </div>
     </div>
@@ -345,6 +330,5 @@
 
         </div>
     </div>
-
 </div>
 <toaster-container></toaster-container>

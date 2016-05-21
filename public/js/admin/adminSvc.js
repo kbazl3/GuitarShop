@@ -31,13 +31,11 @@ angular.module("app")
         };
 
         this.destroyProduct = function(id) {
-            console.log(id);
             return $http({
                     method: "DELETE",
                     url: "/api/products/" + id
                 })
                 .then(function(response) {
-                    console.log(response);
                 });
         };
 
@@ -78,7 +76,6 @@ angular.module("app")
                     url: '/api/me'
                 })
                 .then(function(response) {
-                    console.log(response);
                     return response;
                 });
         };
@@ -89,7 +86,6 @@ angular.module("app")
                     url: '/api/logout'
                 })
                 .then(function(response) {
-                    console.log(response);
                     $state.go('login')
                     return response;
                 });
@@ -123,7 +119,6 @@ angular.module("app")
                     data: admin
                 })
                 .then(function(response) {
-                    console.log(response);
                 });
         };
 
@@ -133,7 +128,6 @@ angular.module("app")
                     url: "/api/admin/" + id
                 })
                 .then(function(response) {
-                    console.log(response);
                 });
         };
 
@@ -171,7 +165,6 @@ angular.module("app")
                     url: "/api/lessons/" + id
                 })
                 .then(function(response) {
-                    console.log(response);
                 });
         };
 
@@ -218,7 +211,6 @@ angular.module("app")
                     url: "/api/studioSessions/" + id
                 })
                 .then(function(response) {
-                    console.log(response);
                 });
         };
 
