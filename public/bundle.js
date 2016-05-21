@@ -1,6 +1,5 @@
-angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 'toaster'])
+angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 'toaster', 'ngAudio'])
     .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
-        $stateProvider.html5mode(true);
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
@@ -39,7 +38,8 @@ angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 't
 
         .state("studio", {
             url: '/studio',
-            templateUrl: "./js/studio/studio.html"
+            templateUrl: "./js/studio/studio.html",
+            controller: "studioCtrl"
         })
 
         .state("setup", {
@@ -453,6 +453,19 @@ angular.module("app")
                 $scope.products = products;
             });
     }]);
+
+angular.module("app")
+    .controller("studioCtrl", ["$scope", "ngAudio", function($scope, ngAudio) {
+
+        $scope.sound = ngAudio.load("../media/spice.mp3"); // returns NgAudioObject
+        console.log($scope.sound);
+        $scope.play = function() {
+            $scope.sound.play();
+        }
+        $scope.stop = function() {
+            $scope.sound.stop();
+        }
+}]);
 
 angular.module("app")
     .directive("footerDir", function() {

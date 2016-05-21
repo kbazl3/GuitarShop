@@ -1,6 +1,5 @@
-angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 'toaster'])
+angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 'toaster', 'ngAudio'])
     .config(function($stateProvider, $urlRouterProvider) {
-        $stateProvider.html5mode(true);
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
@@ -39,7 +38,8 @@ angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 't
 
         .state("studio", {
             url: '/studio',
-            templateUrl: "./js/studio/studio.html"
+            templateUrl: "./js/studio/studio.html",
+            controller: "studioCtrl"
         })
 
         .state("setup", {
