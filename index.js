@@ -52,7 +52,6 @@ app.get('/api/logout', function(req, res, next) {
 });
 
 app.get('/api/products', productsCtrl.getProducts);
-app.get('/api/products/:id', productsCtrl.getOneProduct);
 app.post('/api/products', productsCtrl.addNewProduct);
 app.put('/api/products/:id', productsCtrl.updateProduct);
 app.delete('/api/products/:id', productsCtrl.destroyProduct);

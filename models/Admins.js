@@ -3,9 +3,9 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var adminSchema = new Schema({
-    username: String,
-    email: String,
-    password: String
+    username: {type: String, required: true, unique: true},
+    email: {type: String, required: true, unique: true},
+    password: {type: String, required: true}
 });
 
 adminSchema.pre('save', function(next) {
@@ -21,6 +21,5 @@ adminSchema.methods.verifyPassword = function(reqBodyPassword) {
     var user = this;
     return bcrypt.compareSync(reqBodyPassword, user.password);
 };
-
 
 module.exports = mongoose.model("Admins", adminSchema);

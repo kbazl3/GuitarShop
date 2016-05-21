@@ -1,6 +1,6 @@
 angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 'toaster'])
     .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
-
+        $stateProvider.html5mode(true);
         $urlRouterProvider.otherwise('/');
 
         $stateProvider

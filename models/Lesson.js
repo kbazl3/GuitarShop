@@ -5,7 +5,7 @@ var lessonSchema = new Schema({
     firstName: String,
     lastName: String,
     phone: Number,
-    email: String,
+    email: {type: String, required: true},
     Instructor: String,
     date: Object,
     detail: String,
@@ -14,6 +14,5 @@ var lessonSchema = new Schema({
         default: new Date()
     }
 });
-
 
 module.exports = mongoose.model("Lesson", lessonSchema);
