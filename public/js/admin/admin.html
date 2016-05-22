@@ -79,13 +79,11 @@
             </div>
             <br>
             <label>Update Admin By ID</label>
-
             <div ng-class=" 'has-error' : adminForm.id.$invalid && !adminForm.id.$pristine">
                 <input class="input-sm" name="id" type="text" ng-model="adminID" ng-minlength="24" ng-maxlength="24">
                 <span ng-show="adminForm.id.$error.minlength" class="formVal">Id must be 24 characters long.</span>
                 <span ng-show="adminForm.id.$error.maxlength" class="formVal">Id must be 24 characters long.</span>
             </div>
-
             <button class="btn btn-success" type="button" ng-click="addAdmin(admin)">Add Admin</button>
             <button class="btn btn-warning" type="button" ng-click="updateAdmin(adminID, admin)">Update Admin</button>
         </form>

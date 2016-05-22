@@ -69,18 +69,21 @@
                         <h3>Send us an email with some details about what you'd like to do and we will contact you shortly.</h3>
                     </div>
                     <div class="col-lg-12 well">
-                        <form action="https://getsimpleform.com/messages?form_api_token=dfddebfe4d270b17e5c9728e6fa77e6a" method="post" enctype="multipart/form-data" name="lessonForm">
+                        <form action="https://getsimpleform.com/messages?form_api_token=dfddebfe4d270b17e5c9728e6fa77e6a" name="lessonForm" ng-submitForm() novalidate method="post" enctype="multipart/form-data">
                             <legend class="text-center">Contact Form</legend>
                             <label>Name</label>
-                            <input type="text" name="name" class="form-control" placeholder="Name">
+                            <input type="text" name="name" class="form-control">
 
                             <label>Email address</label>
                             <br>
                             <small class="text-muted">We'll never share your email with anyone else.</small>
-                            <input type="email" class="form-control" name="_replyto" placeholder="Enter email">
+                            <div ng-class="{ 'has-error' : lessonForm.email.$invalid && !lessonForm.email.$pristine}">
+                                <input class="form-control" name="email" type="email" ng-model="lesson.email" required>
+                                <span ng-show="lessonForm.email.$invalid && !lessonForm.email.$pristine" class="formVal">Enter a valid email</span>
+                            </div>
 
                             <label>Phone Number</label>
-                            <input type="text" name="phone" class="form-control" placeholder="Name">
+                            <input type="text" name="phone" class="form-control">
 
                             <label>How experienced are you with guitar? What type of music do you want to learn? Give us some details.</label>
                             <textarea class="form-control" name="details" rows="4"></textarea>
