@@ -15,8 +15,9 @@ var paths = {
 gulp.task('js', function() {
  return gulp.src(paths.jsSource)
  .pipe(plumber())
- .pipe(concat('bundle.js'))
  .pipe(annotate())
+ .pipe(uglify())
+ .pipe(concat('bundle.js'))
  .pipe(gulp.dest('./public'));
 });
 
