@@ -6,14 +6,15 @@ var express = require('express'),
     passportjs = require('passport'),
     session = require('express-session'),
     keys = require('./keys'),
+    serverConfig = require('./serverConfig.js'),
     adminCtrl = require('./controllers/adminCtrl'),
     mongoURI = 'mongodb://localhost:27017/products',
     productsCtrl = require('./controllers/productsCtrl'),
     adminCtrl = require('./controllers/adminCtrl'),
     lessonCtrl = require('./controllers/lessonCtrl'),
     studioSessionsCtrl = require('./controllers/studioSessionsCtrl'),
-    app = express();
-    port = 4700;
+    app = express(),
+    port = serverConfig.serverPort;
 
 app.use(cors());
 app.use(bodyParser.json());
