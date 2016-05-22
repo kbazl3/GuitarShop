@@ -3,7 +3,6 @@
 <br>
 <br>
 <h2 class="text-center">Admin Page</h2>
-
 <div class="adminContainer">
     <button class="btn btn-default" class="form-control" type="button" ng-click="toggleManageProducts()">Manage Products</button>
     <button class="btn btn-default" class="form-control" type="button" ng-click="toggleManageAdmins()">Manage Admin Users</button>
@@ -64,21 +63,29 @@
     </div>
 
     <div class="container" ng-hide="manageAdmins">
-        <form class="well span7">
+        <form class="well span7" name="adminForm" ng-submitForm() novalidate>
             <legend class="text-center"> Manage Admin Users</legend>
             <label>Last Name</label>
             <input class="input-sm" ng-model="admin.username">
-            <label>Email</label>
-            <input class="input-sm" ng-model="admin.email">
-            <label>Password</label>
-            <input class="input-sm" type="password" ng-model="admin.password" required minlength="6">
-            <div ng-messages="myForm.myField.$error">
-                <div ng-message="required">You did not enter a field</div>
-                <div ng-message="minlength">The value entered is too short</div>
+            <div ng-class="{ 'has-error' : adminForm.email.$invalid && !adminForm.email.$pristine }">
+                <label>Email</label>
+                <input class="input-sm" name="email" type="email" ng-model="admin.email" required>
+                <span ng-show="adminForm.email.$invalid && !adminForm.email.$pristine" class="formVal">Enter a valid email</span>
+            </div>
+            <div ng-class=" 'has-error' : adminForm.pw.$invalid && !adminForm.pw.$pristine">
+                <label>Password</label>
+                <input class="input-sm" type="password" ng-model="admin.password" name="pw" required ng-minlength="6">
+                <span ng-show="adminForm.pw.$error.minlength" class="formVal">Password must be at least 6 characters.</span>
             </div>
             <br>
             <label>Update Admin By ID</label>
-            <input class="input-sm" ng-model="adminID">
+
+            <div ng-class=" 'has-error' : adminForm.id.$invalid && !adminForm.id.$pristine">
+                <input class="input-sm" name="id" type="text" ng-model="adminID" ng-minlength="24" ng-maxlength="24">
+                <span ng-show="adminForm.id.$error.minlength" class="formVal">Id must be 24 characters long.</span>
+                <span ng-show="adminForm.id.$error.maxlength" class="formVal">Id must be 24 characters long.</span>
+            </div>
+
             <button class="btn btn-success" type="button" ng-click="addAdmin(admin)">Add Admin</button>
             <button class="btn btn-warning" type="button" ng-click="updateAdmin(adminID, admin)">Update Admin</button>
         </form>
