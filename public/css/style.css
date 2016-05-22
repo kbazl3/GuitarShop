@@ -193,6 +193,12 @@ input {
 .modal-header, .modal-footer {
     background: #ECE7F4;
 }
+.modal-footer div {
+    border-bottom: 1px solid black;
+    display: block;
+    margin: 5px 0;
+    text-align: left;
+}
 
 /* ****** SETUP PAGE ****** */
 
