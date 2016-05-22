@@ -1,11 +1,12 @@
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var annotate = require('gulp-ng-annotate');
-var plumber = require('gulp-plumber');
-var uglify = require('gulp-uglify');
-var watch = require('gulp-watch');
-var sass = require('gulp-sass');
-var path = require('path');
+var gulp = require('gulp'),
+    concat = require('gulp-concat'),
+    annotate = require('gulp-ng-annotate'),
+    plumber = require('gulp-plumber'),
+    uglify = require('gulp-uglify'),
+    watch = require('gulp-watch'),
+    sass = require('gulp-sass'),
+    path = require('path'),
+    imagemin = require('gulp-imagemin');
 
 var paths = {
  jsSource: ['./public/js/**/*.js', '!/public/bundle.js'],
@@ -19,6 +20,13 @@ gulp.task('js', function() {
  .pipe(uglify())
  .pipe(concat('bundle.js'))
  .pipe(gulp.dest('./public'));
+});
+
+//minify images
+gulp.task('image', function() {
+    gulp.src('./public/images/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('./public/images2'));
 });
 
 gulp.task('sass', function () {

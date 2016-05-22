@@ -110,7 +110,7 @@ input {
 /* ****** HOME PAGE ****** */
 
 .homeHeader {
-    background-image: url("http://randomwallpapers.net/guitar-shop-1920x1080-wallpaper234113.jpg");
+    background-image: url("/images/homeHeader.jpg");
     background-size: cover;
 }
 
@@ -210,7 +210,7 @@ input {
     margin-left: 40px;
 }
 .setupPageWrapper {
-    background: url("http://static.tumblr.com/fftf9xi/j1Cmlf212/background.jpg");
+    background: url("/images/gradientBackground.jpg");
     background-size: cover;
 }
 
@@ -227,7 +227,7 @@ video {
     background-size: cover;
 }
 .lessonContainer {
-    background: url("http://static.tumblr.com/fftf9xi/j1Cmlf212/background.jpg");
+    background: url("/images/gradientBackground.jpg");
     background-size: cover;
 }
 
@@ -239,7 +239,7 @@ video {
 }
 /* ****** STUDIO PAGE ****** */
 .studioHeader {
-    background-image: url("http://wallpapercave.com/wp/VrG9gs7.jpg");
+    background-image: url("/images/micMixer.jpg");
 }
 .studioHeader h1 {
     font-size: 3em;
