@@ -1,4 +1,4 @@
-angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 'toaster', 'ngAudio'])
+angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 'toaster'])
     .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
 
@@ -38,8 +38,7 @@ angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 't
 
         .state("studio", {
             url: '/studio',
-            templateUrl: "./js/studio/studio.html",
-            controller: "studioCtrl"
+            templateUrl: "./js/studio/studio.html"
         })
 
         .state("setup", {
@@ -429,21 +428,18 @@ angular.module("app")
     }]);
 
 angular.module("app")
-    .controller("loginCtrl", ["$scope", "adminSvc", function($scope, adminSvc) {
+    .controller("loginCtrl", ["$scope", "adminSvc", "toaster", function($scope, adminSvc, toaster) {
 
         $scope.adminLogin = function() {
             adminSvc.adminLogin($scope.credentials)
-                .then(function(response) {
-                    if (response) {
-                        $scope.adminUser = false;
-                        $scope.adminLoginBoxes = true;
-                    } else {
-                        alert('Insufficient Admin Credentials');
-                    }
-                });
+            .then(function(response) {
+                console.log(response);
+                if (response) {} else {
+                    alert('Insufficient Admin Credentials');
+                }
+            });
         };
-
-}]);
+    }]);
 
 angular.module("app")
     .controller("productCtrl", ["$scope", "adminSvc", function($scope, adminSvc) {
@@ -453,19 +449,6 @@ angular.module("app")
                 $scope.products = products;
             });
     }]);
-
-angular.module("app")
-    .controller("studioCtrl", ["$scope", "ngAudio", function($scope, ngAudio) {
-
-        $scope.sound = ngAudio.load("../media/spice.mp3"); // returns NgAudioObject
-        console.log($scope.sound);
-        $scope.play = function() {
-            $scope.sound.play();
-        }
-        $scope.stop = function() {
-            $scope.sound.stop();
-        }
-}]);
 
 angular.module("app")
     .directive("footerDir", function() {

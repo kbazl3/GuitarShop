@@ -1,4 +1,4 @@
-angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 'toaster', 'ngAudio'])
+angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 'toaster'])
     .config(function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
 
@@ -38,8 +38,7 @@ angular.module("app", ['ui.router', 'ngMessages', 'ui.calendar', 'ngAnimate', 't
 
         .state("studio", {
             url: '/studio',
-            templateUrl: "./js/studio/studio.html",
-            controller: "studioCtrl"
+            templateUrl: "./js/studio/studio.html"
         })
 
         .state("setup", {
