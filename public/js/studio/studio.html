@@ -50,7 +50,7 @@
                 <p>Ready to start your next project with us? Give us a call or send us an email and we will get back to you as soon as possible!</p>
             </div>
             <div class="well col-lg-12">
-                <form action="https://getsimpleform.com/messages?form_api_token=dfddebfe4d270b17e5c9728e6fa77e6a" method="post" enctype="multipart/form-data" name="Lessons">
+                <form action="https://getsimpleform.com/messages?form_api_token=dfddebfe4d270b17e5c9728e6fa77e6a" name="studioForm" method="post" enctype="multipart/form-data" name="Lessons">
                     <legend class="text-center">Contact Form</legend>
                     <label>Name</label>
                     <input type="text" name="StudioName" class="form-control" placeholder="Name">
@@ -58,7 +58,10 @@
                     <label>Email address</label>
                     <br>
                     <small class="text-muted">We'll never share your email with anyone else.</small>
-                    <input type="studioEmail" class="form-control" name="_replyto" placeholder="Enter email">
+                    <div ng-class="{ 'has-error' : studioForm.email.$invalid && !studioForm.email.$pristine}">
+                        <input class="form-control" name="email" type="email" ng-model="studio.email" required>
+                        <span ng-show="studioForm.email.$invalid && !studioForm.email.$pristine" class="formVal">Enter a valid email</span>
+                    </div>
 
                     <label>Phone Number</label>
                     <input type="text" name="studioPhone" class="form-control" placeholder="Name">
