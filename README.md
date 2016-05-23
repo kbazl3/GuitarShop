@@ -26,21 +26,21 @@ that can really add up and make a great fluid experience for the user.  I used g
 
 <h3>Libraries I used</h3>
 <hr>
-<h5>Angular-UI-Calendar</h5> - http://angular-ui.github.io/ui-calendar/
+
+<h5>Angular-UI-Calendar - http://angular-ui.github.io/ui-calendar/</h5>
 This awesome library made it real simple to get a fully functional calendar on my site.  It was very intuitive setting it all up.  I have it connected with my database so that once a studio session is added,
 it will show up and persist on the calendar.  Eventually I will add the functionality of having the guitar lessons appointments on this calendar as well.  
 
-<h5>Toaster Confirmation Alerts</h5> - https://github.com/jirikavi/AngularJS-Toaster
-<hr>
+<h5>Toaster Confirmation Alerts - https://github.com/jirikavi/AngularJS-Toaster</h5>
+
 Often times, I will be at a website and I will click a button and won't really notice anything happen because it happened so fast.  I really enjoy how Toaster alerts gives you a pretty pop up confirmation
 that can be linked with events and other things.  I have used this alert on the admin section, confirming to the admin when a CRUD function was successfully executed.
 
-<h5>Passport Local</h5> - https://github.com/jaredhanson/passport-local
-<hr>
+<h5>Passport Local - https://github.com/jaredhanson/passport-local</h5>
+
 I used passport local auth to allow the admin user to login securely.  I learned a lot about what it takes to keep confidential information hidden from the client side.  Processes like salt and hashing is crucial
 when using local authorization.  I was very please with how easy Passport Local made this for me.
 
-<h5>ngAnimate</h5> - https://docs.angularjs.org/api/ngAnimate
-<hr>
+<h5>ngAnimate - https://docs.angularjs.org/api/ngAnimate</h5> 
 I didn't get to dig into ngAnimate as much as i'd like but I did accomplish adding a neat animation to every route change which I though was pretty cool.  ngAnimate made it real simple to do this and I think it's
 subtle animations like these that really make all the difference the the user experience.
