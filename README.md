@@ -52,6 +52,6 @@ subtle animations like these that really make for the difference the the user ex
 
 We had 2 weeks to finish our personal project and I feel I easily put in over 100 hours on this one in that span.  I take a lot of pride in it. Thanks for taking the time to look at my work :) Feel free to reach out to me about this project or about anything else really!
 
-Twitter: https://twitter.com/KyleBarl0w
-Email: kylebarlow@musician.com
+Twitter: https://twitter.com/KyleBarl0w<br>
+Email: kylebarlow@musician.com<br>
 Github: https://github.com/kbazl3
