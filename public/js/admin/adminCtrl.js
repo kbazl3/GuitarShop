@@ -21,6 +21,7 @@ angular.module("app")
         };
         // ****** PRODUCTS CRUD *******
         $scope.addProduct = function(product) {
+            console.log("from html to adminCtrl", product);
             adminSvc.addNewProduct(product);
             callGetProducts();
             toaster.pop('success', "Successfully Added New Product");

@@ -12,6 +12,7 @@ angular.module("app")
         };
 
         this.addNewProduct = function(newProduct) {
+            console.log("from adminCtrl to admin Svc", newProduct);
             return $http({
                     method: "POST",
                     url: '/api/products',

@@ -18,10 +18,13 @@ module.exports = {
         });
     },
     addNewProduct: function(req, res) {
+        console.log("from admin Svc to producsCtrl", req.body);
         new Product(req.body).save(function(err, productItem) {
             if (err) {
+                console.log("err from the new Product request");
                 return res.status(500).json(err);
             } else {
+                console.log(productItem);
                 return res.json(productItem);
             }
         });
