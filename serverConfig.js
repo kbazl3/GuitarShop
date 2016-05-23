@@ -1,3 +1,3 @@
 module.exports = {
-    serverPort: 8080
+    serverPort: 80
 };
