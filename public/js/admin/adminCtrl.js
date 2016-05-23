@@ -20,7 +20,7 @@ angular.module("app")
             $scope.lessonsAppointment = !$scope.lessonsAppointment;
         };
         // ****** PRODUCTS CRUD *******
-        $scope.addProduct = function(product) {
+        $scope.addproduct = function(product) {
             alert('hitting this shit');
             console.log("from html to adminCtrl", product);
             adminSvc.addNewProduct(product);
