@@ -20,11 +20,14 @@ angular.module("app")
             $scope.lessonsAppointment = !$scope.lessonsAppointment;
         };
         // ****** PRODUCTS CRUD *******
-        $scope.addproduct = function(product) {
+        $scope.addNewProduct = function(product) {
             alert('hitting this shit');
             console.log("from html to adminCtrl", product);
             adminSvc.addNewProduct(product);
             $scope.product = "";
+        };
+        $scope.alertz = function() {
+            alert('mofucker');
         };
         $scope.deleteProduct = function(id, product) {
             if (confirm("Are you sure you want to delete the " + product + "?")) {
