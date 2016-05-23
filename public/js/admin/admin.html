@@ -10,7 +10,7 @@
     <button class="btn btn-default" class="form-control" type="button" ng-click="toggleManageStudio()">Manage Studio Sessions</button>
 
     <div class="container" ng-hide="manageProducts">
-        <form class="well span7">
+        <form class="well span7" ng-submit="addProduct(product)">
             <legend class="text-center"> Manage Products</legend>
             <label>Product Make </label>
             <input class="input-sm" ng-model="product.make">
@@ -42,6 +42,7 @@
             <label>Update Product By ID</label>
             <input class="input-sm" ng-model="prodId">
             <button class="btn btn-success" ng-click="addProduct(product)">Add New Product</button>
+            <button class="btn btn-success" ng-click="addProduct(product)">Add New Product V.2</button>
             <button class="btn btn-warning" ng-click="updateProduct(prodId, product)">Update</button>
         </form>
 
