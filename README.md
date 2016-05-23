@@ -3,7 +3,7 @@
 
 I've always wanted to own a guitar shop that allowed me to buy and sell used guitars, service/repair guitars, offer guitar lessons and record music in a studio.  I built this website as my personal project for DevMountain based off of that dream.
 
-The admin portion of this site can be found if you put /login at the end of the url.  Login with kk as the username and kkkkkk as the password.  Feel free to mess around with the data :)  I trust you.
+The admin portion of this site can be accessed if you put /login at the end of the url.  Login with kk as the username and kkkkkk as the password.  Feel free to mess around with the data :)  I trust you.
 
 <h3>Optimization</h3>
 <hr>
@@ -27,6 +27,7 @@ I've combed over the entire project multiple times looking for needless divs, cl
 <img src="http://perlmaven.com/img/mongodb-logo.png">
 <img src="http://plainicon.com/dboard/userprod/2800_a1826/prod_thumb/plainicon.com-50292-128px-812.png">
 <img src="https://raygun.com/blog/wp-content/uploads/2013/12/bower1.png">
+<img src="https://cdn4.iconfinder.com/data/icons/azure-blue-icons/128/git_repository.png">
 
 <h3>Libraries I used</h3>
 <hr>
