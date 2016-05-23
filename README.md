@@ -1,4 +1,4 @@
-<h1>Guitar Bazaar</h1>
+<h1>Guitar Bazaar - http://104.236.156.104/</h1>
 <hr>
 
 I've always wanted to own a guitar shop that allowed me to buy and sell used guitars, service/repair guitars, offer guitar lessons and record music in a studio.  I built this website as my personal project for DevMountain based off of that dream.
