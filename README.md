@@ -43,7 +43,7 @@ that can be linked with events and other things.  I have used this alert on the 
 <h5>Passport Local - https://github.com/jaredhanson/passport-local</h5>
 
 I used passport local auth to allow the admin user to login securely.  I learned a lot about what it takes to keep confidential information hidden from the client side.  Processes like salt and hashing is crucial
-when using local authorization.  I was very please with how easy Passport Local made this for me.
+when using local authorization.  I was very pleased with how easy Passport Local made this for me.
 
 <h5>ngAnimate - https://docs.angularjs.org/api/ngAnimate</h5>
 I didn't get to dig into ngAnimate as much as i'd like but I did accomplish adding a neat animation to every route change which I though was pretty cool.  ngAnimate made it real simple to do this and I think it's
@@ -52,6 +52,6 @@ subtle animations like these that really make for the difference the the user ex
 
 We had 2 weeks to finish our personal project and I feel I easily put in over 100 hours on this one in that span.  I take a lot of pride in it. Thanks for taking the time to look at my work :) Feel free to reach out to me about this project or about anything else really!
 
-    Twitter: https://twitter.com/KyleBarl0w
-    Email: kylebarlow@musician.com
-    Github: https://github.com/kbazl3
+Twitter: https://twitter.com/KyleBarl0w
+Email: kylebarlow@musician.com
+Github: https://github.com/kbazl3
