@@ -26,6 +26,13 @@ angular.module("app")
             adminSvc.addNewProduct(product);
             $scope.product = "";
         };
+
+        $scope.createProduct = function(product) {
+            alert('hitting this');
+            console.log(product);
+            adminSvc.addNewProduct(product);
+        };
+        
         $scope.alertz = function() {
             alert('mofucker');
         };
