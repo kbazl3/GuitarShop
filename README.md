@@ -15,6 +15,8 @@ that can really add up and make a great fluid experience for the user.  I used g
 <h3>Tech I used</h3>
 <hr>
 <img src="http://dev.bowdenweb.com/a/i/js/icons/javascript-icon-128.png"><span></span>
+<img src="https://cdn0.iconfinder.com/data/icons/HTML5/128/HTML_Logo.png">
+<img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/badge-css-3-128.png">
 <img src="https://cdn0.iconfinder.com/data/icons/long-shadow-web-icons/512/boostrap-128.png"><span></span>
 <img src="https://cdn3.iconfinder.com/data/icons/logos-3/250/angular-128.png">
 <img src="https://cdn4.iconfinder.com/data/icons/logos-3/456/nodejs-new-pantone-black-128.png">
@@ -29,7 +31,7 @@ that can really add up and make a great fluid experience for the user.  I used g
 
 <h5>Angular-UI-Calendar - http://angular-ui.github.io/ui-calendar/</h5>
 This awesome library made it real simple to get a fully functional calendar on my site.  It was very intuitive setting it all up.  I have it connected with my database so that once a studio session is added,
-it will show up and persist on the calendar.  Eventually I will add the functionality of having the guitar lessons appointments on this calendar as well.  
+it will show up and persist on the calendar.  
 
 <h5>Toaster Confirmation Alerts - https://github.com/jirikavi/AngularJS-Toaster</h5>
 
@@ -41,6 +43,6 @@ that can be linked with events and other things.  I have used this alert on the 
 I used passport local auth to allow the admin user to login securely.  I learned a lot about what it takes to keep confidential information hidden from the client side.  Processes like salt and hashing is crucial
 when using local authorization.  I was very please with how easy Passport Local made this for me.
 
-<h5>ngAnimate - https://docs.angularjs.org/api/ngAnimate</h5> 
+<h5>ngAnimate - https://docs.angularjs.org/api/ngAnimate</h5>
 I didn't get to dig into ngAnimate as much as i'd like but I did accomplish adding a neat animation to every route change which I though was pretty cool.  ngAnimate made it real simple to do this and I think it's
-subtle animations like these that really make all the difference the the user experience.
+subtle animations like these that really make for the difference the the user experience.
