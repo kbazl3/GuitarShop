@@ -27,16 +27,6 @@ angular.module("app")
             $scope.product = "";
         };
 
-        $scope.createProduct = function(product) {
-            alert('hitting this');
-            console.log(product);
-            adminSvc.addNewProduct(product);
-        };
-
-        $scope.alertz = function() {
-            alert('mofucker');
-        };
-
 
         $scope.deleteProduct = function(id, product) {
             if (confirm("Are you sure you want to delete the " + product + "?")) {
