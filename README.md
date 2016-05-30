@@ -1,6 +1,8 @@
 <h1>Guitar Bazaar - http://104.236.156.104/</h1>
 <hr>
 
+<img href="/public/images/screenshot.png"></img>
+
 I've always wanted to own a guitar shop that allowed me to buy and sell used guitars, service/repair guitars, offer guitar lessons and record music in a studio.  I built this website as my personal project for DevMountain based off of that dream.
 
 The admin portion of this site can be accessed if you put <pre>/login</pre> at the end of the url.  Login with kk as the username and kkkkkk as the password.  Feel free to mess around with the data :)  I trust you.
