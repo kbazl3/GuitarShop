@@ -1,4 +1,4 @@
-<h1>Guitar Bazaar - http://104.236.156.104/</h1>
+<h1>Guitar Bazaar - http://guitarbazaar.trade/#/</h1>
 <hr>
 
 <img src="/public/images/screenshot.png"></img>
@@ -12,7 +12,7 @@ The admin portion of this site can be accessed if you put <pre>/login</pre> at t
 I really wanted to focus on keeping the site optimal at every step.  I made sure to use the minified version of all CDN's which I know can make an small difference. Really, it is all those small differences
 that can really add up and make a great fluid experience for the user.  I used gulp to minify all my js files and I minified all images using <a href="https://github.com/sindresorhus/gulp-imagemin>gulp-imagemin</a>(next time i'm going to look into using <a href="https://aws.amazon.com/s3/">Amason S3</a> to host my images).  I feel like I just touched the surface with what gulp can do but I really enjoyed working with it.
 
-I've combed over the entire project multiple times looking for needless divs, classes, id's and white space.  It is easy to add a class or a div with intentions of using it but then forgetting about it.  Again, these seem pretty miniscule but they can add up.  I pride myself with clean code as well.  Readability is HUGE to me.....Before I can even start debugging I have to clean up the code indentation and spacing.  This is something I feel I am OCD about but I get a strange satisfaction from looking at a perfectly indented and symmetrical piece of code.  It is almost art to me, in a really nerdy way.
+I've combed over the entire project multiple times looking for needless divs, classes, id's and white space.  It is easy to add a class or a div with intentions of using it but then forgetting about it.  Again, these seem pretty miniscule but they can add up.  I pride myself with clean code as well.  Readability is HUGE to me.....Before I can even start debugging I have to clean up the code indentation and spacing.  This is something I feel I am OCD about but I get a strange satisfaction from looking at a perfectly indented and symmetrical piece of code.  It is almost art to me, in a really nerdy way.  This site was hosted using <a href="https://mlab.com/"> MongoLabs</a> and <a href="https://www.digitalocean.com/">DigitalOcean</a>
 
 
 
